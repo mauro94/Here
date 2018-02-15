@@ -16,6 +16,7 @@
 		341693C72007D9B400C61B76 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341693C52007D9B400C61B76 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		341693CA2007D9BA00C61B76 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341693C92007D9B900C61B76 /* RealmSwift.framework */; };
 		341693CB2007D9BA00C61B76 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341693C92007D9B900C61B76 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34363D1B2035F7BE00BF2656 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34363D1A2035F7BE00BF2656 /* Student.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		341693BF2007D35500C61B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		341693C52007D9B400C61B76 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		341693C92007D9B900C61B76 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		34363D1A2035F7BE00BF2656 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				341693B32007D35400C61B76 /* AppDelegate.swift */,
 				3418EBF92022617A00223A72 /* Login */,
 				341693B72007D35400C61B76 /* Main.storyboard */,
+				34363D1A2035F7BE00BF2656 /* Student.storyboard */,
 				341693BA2007D35400C61B76 /* Assets.xcassets */,
 				341693BC2007D35400C61B76 /* LaunchScreen.storyboard */,
 				341693BF2007D35500C61B76 /* Info.plist */,
@@ -158,6 +161,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34363D1B2035F7BE00BF2656 /* Student.storyboard in Resources */,
 				341693BE2007D35400C61B76 /* LaunchScreen.storyboard in Resources */,
 				341693BB2007D35400C61B76 /* Assets.xcassets in Resources */,
 				341693B92007D35400C61B76 /* Main.storyboard in Resources */,
