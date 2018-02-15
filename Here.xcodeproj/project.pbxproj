@@ -17,6 +17,12 @@
 		341693CA2007D9BA00C61B76 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341693C92007D9B900C61B76 /* RealmSwift.framework */; };
 		341693CB2007D9BA00C61B76 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341693C92007D9B900C61B76 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34363D1B2035F7BE00BF2656 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34363D1A2035F7BE00BF2656 /* Student.storyboard */; };
+		34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */; };
+		34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */; };
+		34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */; };
+		34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */; };
+		34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */; };
+		34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +51,12 @@
 		341693C52007D9B400C61B76 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		341693C92007D9B900C61B76 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		34363D1A2035F7BE00BF2656 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
+		34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAssignments.swift; sourceTree = "<group>"; };
+		34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCourses.swift; sourceTree = "<group>"; };
+		34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssignmentsNew.swift; sourceTree = "<group>"; };
+		34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssignmentsView.swift; sourceTree = "<group>"; };
+		34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoursesNew.swift; sourceTree = "<group>"; };
+		34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoursesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +96,7 @@
 				341693B32007D35400C61B76 /* AppDelegate.swift */,
 				3418EBF92022617A00223A72 /* Login */,
 				341693B72007D35400C61B76 /* Main.storyboard */,
-				34363D1A2035F7BE00BF2656 /* Student.storyboard */,
+				34363D1C2035F94300BF2656 /* Students */,
 				341693BA2007D35400C61B76 /* Assets.xcassets */,
 				341693BC2007D35400C61B76 /* LaunchScreen.storyboard */,
 				341693BF2007D35500C61B76 /* Info.plist */,
@@ -98,6 +110,20 @@
 				341693B52007D35400C61B76 /* ViewControllerLogin.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		34363D1C2035F94300BF2656 /* Students */ = {
+			isa = PBXGroup;
+			children = (
+				34363D1A2035F7BE00BF2656 /* Student.storyboard */,
+				34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */,
+				34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */,
+				34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */,
+				34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */,
+				34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */,
+				34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */,
+			);
+			path = Students;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,8 +217,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */,
+				34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */,
+				34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */,
+				34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */,
 				341693B62007D35400C61B76 /* ViewControllerLogin.swift in Sources */,
 				341693B42007D35400C61B76 /* AppDelegate.swift in Sources */,
+				34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */,
+				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

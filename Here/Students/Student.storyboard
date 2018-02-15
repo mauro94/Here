@@ -32,7 +32,7 @@
         <!--Root View Controller-->
         <scene sceneID="faK-2R-QGE">
             <objects>
-                <tableViewController id="UO3-2f-s9T" sceneMemberID="viewController">
+                <tableViewController id="UO3-2f-s9T" customClass="TableViewControllerAssignments" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aJJ-EK-5Wl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1390" y="89"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Assignments New-->
         <scene sceneID="B31-FF-xUh">
             <objects>
-                <viewController id="l3O-Qp-CYK" sceneMemberID="viewController">
+                <viewController id="l3O-Qp-CYK" customClass="ViewControllerAssignmentsNew" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ixm-Qa-lNQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="2170" y="89"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Assignments View-->
         <scene sceneID="eu4-7Y-wee">
             <objects>
-                <viewController id="vyG-am-hzV" sceneMemberID="viewController">
+                <viewController id="vyG-am-hzV" customClass="ViewControllerAssignmentsView" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pNt-iR-78R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,7 +133,7 @@
         <!--Root View Controller-->
         <scene sceneID="U4Q-Hg-4Fr">
             <objects>
-                <tableViewController id="Lig-uE-Wrf" sceneMemberID="viewController">
+                <tableViewController id="Lig-uE-Wrf" customClass="TableViewControllerCourses" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oVw-ES-hwO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="1423" y="813"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Courses New-->
         <scene sceneID="yCm-ua-SaB">
             <objects>
-                <viewController id="7Ro-V1-WqZ" sceneMemberID="viewController">
+                <viewController id="7Ro-V1-WqZ" customClass="ViewControllerCoursesNew" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jha-yt-rQT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="2169" y="813"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Courses View-->
         <scene sceneID="Kbg-Km-FR3">
             <objects>
-                <viewController id="kDW-Kj-Ipc" sceneMemberID="viewController">
+                <viewController id="kDW-Kj-Ipc" customClass="ViewControllerCoursesView" customModule="Here" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E0v-W6-hfd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
