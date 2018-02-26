@@ -21,6 +21,12 @@
 		34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */; };
 		34363D2D2035FC9000BF2656 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D2C2035FC9000BF2656 /* Assignment.swift */; };
 		34363D312035FCBE00BF2656 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D302035FCBE00BF2656 /* Course.swift */; };
+		34827B27203FD61B00449A00 /* ChromaShadeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */; };
+		34827B28203FD61B00449A00 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29AB9203FD16300700503 /* UIColor+Utilities.swift */; };
+		34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABB203FD16300700503 /* ChromaColorPicker.swift */; };
+		34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */; };
+		34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABE203FD16300700503 /* ChromaHandle.swift */; };
+		34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABF203FD16300700503 /* ChromaAddButton.swift */; };
 		3497425A203611D5001E8F79 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34974259203611D4001E8F79 /* Realm.framework */; };
 		3497425B203611D5001E8F79 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34974259203611D4001E8F79 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3497425D203611D8001E8F79 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3497425C203611D8001E8F79 /* RealmSwift.framework */; };
@@ -61,6 +67,12 @@
 		34363D302035FCBE00BF2656 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		34974259203611D4001E8F79 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3497425C203611D8001E8F79 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaShadeSlider.swift; sourceTree = "<group>"; };
+		34A29AB9203FD16300700503 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
+		34A29ABB203FD16300700503 /* ChromaColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaColorPicker.swift; sourceTree = "<group>"; };
+		34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModeToggleButton.swift; sourceTree = "<group>"; };
+		34A29ABE203FD16300700503 /* ChromaHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaHandle.swift; sourceTree = "<group>"; };
+		34A29ABF203FD16300700503 /* ChromaAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaAddButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,7 @@
 			children = (
 				3497425C203611D8001E8F79 /* RealmSwift.framework */,
 				34974259203611D4001E8F79 /* Realm.framework */,
+				34A29AB7203FD16300700503 /* ChromaColorPicker */,
 				341693B22007D35400C61B76 /* Here */,
 				341693B12007D35400C61B76 /* Products */,
 			);
@@ -121,12 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				34363D1A2035F7BE00BF2656 /* Student.storyboard */,
-				34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */,
-				34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */,
-				34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */,
-				34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */,
-				34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */,
-				34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */,
+				34827B2E2043879900449A00 /* Assignments */,
+				34827B2D2043874E00449A00 /* Courses */,
 			);
 			path = Students;
 			sourceTree = "<group>";
@@ -138,6 +147,39 @@
 				34363D2C2035FC9000BF2656 /* Assignment.swift */,
 			);
 			path = DB;
+			sourceTree = "<group>";
+		};
+		34827B2D2043874E00449A00 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */,
+				34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */,
+				34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		34827B2E2043879900449A00 /* Assignments */ = {
+			isa = PBXGroup;
+			children = (
+				34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */,
+				34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */,
+				34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */,
+			);
+			path = Assignments;
+			sourceTree = "<group>";
+		};
+		34A29AB7203FD16300700503 /* ChromaColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */,
+				34A29AB9203FD16300700503 /* UIColor+Utilities.swift */,
+				34A29ABB203FD16300700503 /* ChromaColorPicker.swift */,
+				34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */,
+				34A29ABE203FD16300700503 /* ChromaHandle.swift */,
+				34A29ABF203FD16300700503 /* ChromaAddButton.swift */,
+			);
+			path = ChromaColorPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -234,14 +276,20 @@
 			files = (
 				34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */,
 				34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */,
+				34827B28203FD61B00449A00 /* UIColor+Utilities.swift in Sources */,
 				34363D312035FCBE00BF2656 /* Course.swift in Sources */,
+				34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */,
+				34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */,
 				34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */,
 				34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */,
 				341693B62007D35400C61B76 /* ViewControllerLogin.swift in Sources */,
+				34827B27203FD61B00449A00 /* ChromaShadeSlider.swift in Sources */,
 				341693B42007D35400C61B76 /* AppDelegate.swift in Sources */,
 				34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */,
 				34363D2D2035FC9000BF2656 /* Assignment.swift in Sources */,
+				34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */,
 				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,
+				34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

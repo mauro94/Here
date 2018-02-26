@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = darkColor
         UITabBar.appearance().tintColor = UIColor.white
         
+        // Create empty course
+        let realm = try! Realm()
+        let courses = realm.objects(Course.self)
+        if courses.count == 0 {
+            let noCourse = Course(name: "No Course", group: "", building: "", room: "")
+            try! realm.write {
+                realm.add(noCourse)
+            }
+        }
         return true
     }
 
