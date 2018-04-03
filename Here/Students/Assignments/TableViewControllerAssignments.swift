@@ -14,6 +14,9 @@ class TableViewControllerAssignments: UITableViewController {
     let realm = try! Realm()
     var assignments: Results<Assignment>!
 
+    // MARK: - Outlets
+    @IBOutlet var vNoAssignments: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,8 +46,20 @@ class TableViewControllerAssignments: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        var numOfSections: Int = 0
+        
+        if assignments.count > 1 {
+            tableView.separatorStyle = .singleLine
+            numOfSections = 1
+            tableView.backgroundView = nil
+            tableView.isScrollEnabled = true
+        }
+        else {
+            tableView.backgroundView = vNoAssignments
+            tableView.separatorStyle = .none
+            tableView.isScrollEnabled = false
+        }
+        return numOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

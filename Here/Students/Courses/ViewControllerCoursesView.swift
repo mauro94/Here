@@ -26,6 +26,9 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Nav bar
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         // Title
         self.title = course.name
         
@@ -47,12 +50,7 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
         // Color view
         let lengthSide = self.view.frame.width
         
-        if lengthSide <= 320 {
-            colorPicker = ChromaColorPicker(frame:CGRect(x: lengthSide/2 - lengthSide/1.5/2 - 20, y: -10, width: lengthSide/1.5, height: lengthSide/1.5))
-        }
-        else {
-            colorPicker = ChromaColorPicker(frame:CGRect(x: 0, y: 0, width: lengthSide-40, height: lengthSide-40))
-        }
+        colorPicker = ChromaColorPicker(frame:CGRect(x: 0, y: 0, width: lengthSide-50, height: lengthSide-50))
         colorPicker.delegate = self
         colorPicker.hexLabel.isHidden = true
         colorPicker.stroke = 3

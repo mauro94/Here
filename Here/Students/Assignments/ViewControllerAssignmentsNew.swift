@@ -9,21 +9,20 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Outlets
     @IBOutlet weak var tfTitle: UITextField!
-    @IBOutlet weak var dpDate: UIDatePicker!
     @IBOutlet weak var sgPriority: UISegmentedControl!
     @IBOutlet weak var pCourse: UIPickerView!
     @IBOutlet weak var tvNotes: UITextView!
-    @IBOutlet weak var btCancel: UIButton!
     @IBOutlet weak var btSave: UIButton!
-    @IBOutlet weak var scScroll: UIScrollView!
+    @IBOutlet weak var tbFields: UITableView!
     
     // MARK: - Variables
     let realm = try! Realm()
     var courses: Results<Course>!
     var coursesArray = [Course]()
+    var cellExpanded = [Bool]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,37 +34,50 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
         statusBarView.backgroundColor = darkColor
         view.addSubview(statusBarView)
-        
-        // Textfield design
-        tfTitle.layer.cornerRadius = 8.0
-        tfTitle.layer.borderWidth = 1
-        tfTitle.layer.borderColor = UIColor.lightGray.cgColor
-        
-        sgPriority.layer.cornerRadius = 8.0
-        
-        tvNotes.layer.cornerRadius = 8.0
-        tvNotes.layer.borderWidth = 1
-        tvNotes.layer.borderColor = UIColor.lightGray.cgColor
-        
+
         // Button design
         btSave.layer.cornerRadius = 8.0
-        btCancel.layer.cornerRadius = 8.0
         
-        // Select correct option in segmented
-        sgPriority.selectedSegmentIndex = 1
+        // Textview
+        tvNotes.delegate = self
+        tvNotes.text = "Description"
+        tvNotes.textColor = .lightGray
+        
+        // Tableview
+        tbFields.delegate = self
+        tbFields.dataSource = self
+        
+        // Expanded cell prep
+        cellExpanded.append(false)
+        cellExpanded.append(false)
+        cellExpanded.append(false)
         
         // Prep course picker
-        self.pCourse.dataSource = self
-        self.pCourse.delegate = self
+        //self.pCourse.dataSource = self
+        //self.pCourse.delegate = self
         courses = realm.objects(Course.self)
         coursesArray = Array(courses)
-        
-        scScroll.keyboardDismissMode = .onDrag
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Description") {
+            textView.text = ""
+            textView.textColor = .black
+        }
+        textView.becomeFirstResponder() //Optional
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "") {
+            textView.text = "Description"
+            textView.textColor = .lightGray
+        }
+        textView.resignFirstResponder()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -90,9 +102,9 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
             let selectedCourseIndex = pCourse.selectedRow(inComponent: 0)
             
             // Save in realm
-            let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: sgPriority.selectedSegmentIndex, date: dpDate.date, course: coursesArray[selectedCourseIndex])
+            //let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: sgPriority.selectedSegmentIndex, date: dpDate.date, course: coursesArray[selectedCourseIndex])
             try! realm.write {
-                realm.add(assignment)
+                //realm.add(assignment)
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -101,6 +113,55 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
             let alert = UIAlertController(title: "Missing Title", message: "Define a title for this assignment", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Table View
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if cellExpanded[indexPath.row] {
+            cellExpanded[indexPath.row] = false
+        }
+        else {
+            cellExpanded[indexPath.row] = true
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if cellExpanded[indexPath.row] {
+            return 220
+        }
+        else {
+            return 44
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "priorityCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            return cell
         }
     }
     

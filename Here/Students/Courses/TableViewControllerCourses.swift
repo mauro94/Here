@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CourseTableViewCell: UITableViewCell {
+class TableViewCellCourse: UITableViewCell {
     // MARK: - Cell Outlets
     @IBOutlet weak var lbCourseTitle: UILabel!
     @IBOutlet weak var vCourseColor: UIView!
@@ -26,6 +26,9 @@ class TableViewControllerCourses: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Nav bar
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         // Get data
         courses = realm.objects(Course.self)
@@ -55,8 +58,8 @@ class TableViewControllerCourses: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         var numOfSections: Int = 0
+        
         if courses.count > 1 {
             tableView.separatorStyle = .singleLine
             numOfSections = 1
@@ -68,7 +71,8 @@ class TableViewControllerCourses: UITableViewController {
             tableView.separatorStyle = .none
             tableView.isScrollEnabled = false
         }
-        return numOfSections    }
+        return numOfSections
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -77,7 +81,7 @@ class TableViewControllerCourses: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! CourseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! TableViewCellCourse
         cell.accessoryType = .disclosureIndicator
         
         // Circle color

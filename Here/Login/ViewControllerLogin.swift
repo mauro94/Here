@@ -8,32 +8,29 @@
 
 import UIKit
 
+
 class ViewControllerLogin: UIViewController {
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Add border design
-        tfUser.layer.cornerRadius = 8.0
-        tfUser.layer.borderWidth = 1
-        tfUser.layer.borderColor = UIColor.lightGray.cgColor
-        
-        tfPassword.layer.cornerRadius = 8.0
-        tfPassword.layer.borderWidth = 1
-        tfPassword.layer.borderColor = UIColor.lightGray.cgColor
-        
-        // Password textfield
-        tfPassword.isSecureTextEntry = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func unwindAbout(unwindSegue: UIStoryboardSegue) {
-        // No contiene nada es solo para regresarnos
+        // Do nothing
+    }
+    
+    @IBAction func login(_ sender: UIButton) {
+        if (tfUser.text == "" || tfPassword.text == "") {
+            alertOk(title: "Error", message: "Fields cannot be empty", vc: self)
+        }
+        
+        //print (loginAttempt(user: "A01191903", password: "12344321"))
     }
 }
 
