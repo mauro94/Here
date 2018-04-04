@@ -27,14 +27,6 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Color
-        let darkColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
-        
-        // Status bar color
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-        statusBarView.backgroundColor = darkColor
-        view.addSubview(statusBarView)
-
         // Button design
         btSave.layer.cornerRadius = 8.0
         
@@ -46,7 +38,8 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         // Tableview
         tbFields.delegate = self
         tbFields.dataSource = self
-        
+        tbFields.tableFooterView = UIView()
+
         // Expanded cell prep
         cellExpanded.append(false)
         cellExpanded.append(false)
@@ -64,12 +57,13 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Tetx view
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.text == "Description") {
             textView.text = ""
             textView.textColor = .black
         }
-        textView.becomeFirstResponder() //Optional
+        textView.becomeFirstResponder()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -80,6 +74,7 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         textView.resignFirstResponder()
     }
     
+    // MARK: - Date Picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -95,6 +90,15 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         return coursesArray[row].name
     }
     
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
+        let cell = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM-dd"
+        
+        cell.lbSelectedDate.text = formatter.string(from: sender.date)
+    }
+    
+    // MARK: - Actions
     @IBAction func save(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
@@ -118,11 +122,15 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        for i in 0...2 {
+            cellExpanded[i] = false
+        }
+        
         if cellExpanded[indexPath.row] {
             cellExpanded[indexPath.row] = false
         }
         else {
-            cellExpanded[indexPath.row] = true
+            cellExpanded[indexPath.row] = !cellExpanded[indexPath.row]
         }
         tableView.beginUpdates()
         tableView.endUpdates()

@@ -28,9 +28,6 @@ class TableViewCellCourseAssignment: UITableViewCell, UIPickerViewDelegate, UIPi
         self.pvCourses.delegate = self
         courses = realm.objects(Course.self)
         coursesArray = Array(courses)
-        
-        // Add text to label
-        lbCourseName.text = "No Course"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

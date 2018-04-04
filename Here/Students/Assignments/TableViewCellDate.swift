@@ -37,4 +37,24 @@ class TableViewCellDate: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    @IBAction func pressedDateButton(_ sender: UIButton) {
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM-dd"
+        
+        switch sender {
+            case btTomorrow:
+                let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
+                dpDate.date = tomorrow!
+                lbSelectedDate.text = formatter.string(from: tomorrow!)
+            case btDays:
+                let days = Calendar.current.date(byAdding: .day, value: 3, to: today)
+                dpDate.date = days!
+                lbSelectedDate.text = formatter.string(from: days!)
+            default:
+                let week = Calendar.current.date(byAdding: .day, value: 7, to: today)
+                dpDate.date = week!
+                lbSelectedDate.text = formatter.string(from: week!)
+            }
+        }
 }

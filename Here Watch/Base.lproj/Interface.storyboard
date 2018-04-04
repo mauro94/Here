@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXA-ZI-G5d">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="qrs-Cm-KSj">
+            <objects>
+                <controller id="hXA-ZI-G5d">
+                    <items>
+                        <label width="136" height="39" alignment="left" text="Absences Remaining" numberOfLines="2" id="gWW-pr-AC0">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <group width="1" height="0.69999999999999996" alignment="center" verticalAlignment="center" layout="vertical" id="0HF-iL-b1T">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="6" id="cbb-NR-XWv">
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="36"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <segue destination="AgC-eL-Hgc" kind="relationship" relationship="nextPage" id="XuQ-xZ-LoC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-32" y="345"/>
+        </scene>
+        <!--Interface Controller Here-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceControllerHere" customModule="Here_Watch_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="center" contentMode="center" layout="vertical" id="Tvh-0j-4VA">
+                            <items>
+                                <button alignment="center" verticalAlignment="center" id="cTs-zM-FO9">
+                                    <group key="contentGroup" width="120" height="120" alignment="left" radius="60" id="Wh1-ev-leZ">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Here" id="IUm-Dg-vfK">
+                                                <fontDescription key="font" type="boldSystem" pointSize="32"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </group>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <segue destination="yfP-Hh-J3d" kind="relationship" relationship="nextPage" id="vyJ-sM-e4Z"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="y26-eI-eMe">
+            <objects>
+                <controller id="yfP-Hh-J3d">
+                    <items>
+                        <label alignment="left" text="Assignments" id="Amj-B7-H2w">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <table alignment="left" id="ksZ-gT-rmw">
+                            <items>
+                                <tableRow id="ujr-cg-bBm">
+                                    <group key="rootItem" width="1" alignment="left" id="NeI-1U-4VC"/>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Here_Watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

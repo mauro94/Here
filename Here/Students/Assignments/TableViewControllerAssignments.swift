@@ -16,6 +16,7 @@ class TableViewControllerAssignments: UITableViewController {
 
     // MARK: - Outlets
     @IBOutlet var vNoAssignments: UIView!
+    @IBOutlet weak var btNewAssignment: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,9 @@ class TableViewControllerAssignments: UITableViewController {
         // Get data
         assignments = realm.objects(Assignment.self)
         assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
+        
+        // Button style
+        btNewAssignment.layer.cornerRadius = 8.0
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
