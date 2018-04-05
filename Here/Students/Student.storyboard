@@ -178,31 +178,31 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vjn-Q8-D9G">
                                 <rect key="frame" x="10" y="64" width="345" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="9Vs-Rg-2vc"/>
+                                    <constraint firstAttribute="height" constant="50" identifier="titleHeight" id="9Vs-Rg-2vc"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-K8-8fo">
-                                <rect key="frame" x="20" y="114" width="335" height="100"/>
+                                <rect key="frame" x="20" y="114" width="335" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" identifier="noteHeight" id="9O4-bC-c1o"/>
+                                    <constraint firstAttribute="height" constant="80" identifier="noteHeight" id="9O4-bC-c1o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" calendarEvent="YES"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1h-Zk-av4">
-                                <rect key="frame" x="0.0" y="219" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="199" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="vJw-7P-msI"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5q-aT-nHX">
-                                <rect key="frame" x="0.0" y="220" width="375" height="715"/>
+                                <rect key="frame" x="0.0" y="200" width="375" height="735"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1046,31 +1046,31 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FcV-Xb-DQC">
                                 <rect key="frame" x="10" y="0.0" width="345" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="68F-Z7-lZ5"/>
+                                    <constraint firstAttribute="height" constant="50" identifier="heightTitle" id="68F-Z7-lZ5"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-TY-yS8">
-                                <rect key="frame" x="20" y="50" width="335" height="100"/>
+                                <rect key="frame" x="20" y="50" width="335" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" identifier="noteHeight" id="JSy-ls-t2G"/>
+                                    <constraint firstAttribute="height" constant="80" identifier="noteHeight" id="JSy-ls-t2G"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES" calendarEvent="YES"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu3-Nl-Xxm">
-                                <rect key="frame" x="0.0" y="155" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="135" width="375" height="1"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="5g2-4F-hbl"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4yc-0n-HAw">
-                                <rect key="frame" x="0.0" y="156" width="375" height="614"/>
+                                <rect key="frame" x="0.0" y="136" width="375" height="634"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>

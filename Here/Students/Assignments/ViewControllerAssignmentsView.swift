@@ -27,7 +27,6 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.prefersLargeTitles = false
         self.title = assignment.title
         
         // Button design
@@ -104,6 +103,10 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     }
     
     // MARK: - Actions
+    @IBAction func quitarTeclado() {
+        view.endEditing(true)
+    }
+    
     @IBAction func saveChanges(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
@@ -155,8 +158,19 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for i in 0...2 {
-            cellExpanded[i] = false
+        let index = indexPath.row
+        
+        if index == 0 {
+            cellExpanded[1] = false
+            cellExpanded[2] = false
+        }
+        else if index == 1 {
+            cellExpanded[0] = false
+            cellExpanded[2] = false
+        }
+        else {
+            cellExpanded[0] = false
+            cellExpanded[1] = false
         }
         
         if cellExpanded[indexPath.row] {

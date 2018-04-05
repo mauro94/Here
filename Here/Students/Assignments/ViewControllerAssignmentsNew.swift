@@ -39,7 +39,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
         tbFields.tableFooterView = UIView()
 
         // Expanded cell prep
-        cellExpanded.append(true)
+        cellExpanded.append(false)
         cellExpanded.append(false)
         cellExpanded.append(false)
         
@@ -86,6 +86,10 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     }
     
     // MARK: - Actions
+    @IBAction func quitarTeclado() {
+        view.endEditing(true)
+    }
+    
     @IBAction func save(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
@@ -120,8 +124,19 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     
     // MARK: - Table View
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        for i in 0...2 {
-            cellExpanded[i] = false
+        let index = indexPath.row
+        
+        if index == 0 {
+            cellExpanded[1] = false
+            cellExpanded[2] = false
+        }
+        else if index == 1 {
+            cellExpanded[0] = false
+            cellExpanded[2] = false
+        }
+        else {
+            cellExpanded[0] = false
+            cellExpanded[1] = false
         }
         
         if cellExpanded[indexPath.row] {
