@@ -15,6 +15,9 @@ class TableViewCellDate: UITableViewCell {
     @IBOutlet weak var btTomorrow: UIButton!
     @IBOutlet weak var btDays: UIButton!
     @IBOutlet weak var btNextWeek: UIButton!
+    
+    // MARK: - Variables
+    var date = Date()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +39,14 @@ class TableViewCellDate: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM-dd"
+        
+        lbSelectedDate.text = formatter.string(from: sender.date)
+        date = sender.date
+    }
 
     @IBAction func pressedDateButton(_ sender: UIButton) {
         let today = Date()
@@ -55,6 +66,10 @@ class TableViewCellDate: UITableViewCell {
                 let week = Calendar.current.date(byAdding: .day, value: 7, to: today)
                 dpDate.date = week!
                 lbSelectedDate.text = formatter.string(from: week!)
-            }
         }
+    }
+    
+    func setDate(date: Date) {
+        dpDate.date = date
+    }
 }

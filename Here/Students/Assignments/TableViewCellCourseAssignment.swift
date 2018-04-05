@@ -63,5 +63,8 @@ class TableViewCellCourseAssignment: UITableViewCell, UIPickerViewDelegate, UIPi
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return coursesArray.count
     }
-
+    
+    func setCourse(courseIndex: Int) {
+        pvCourses.selectRow(courseIndex, inComponent: 0, animated: true)
+    }
 }

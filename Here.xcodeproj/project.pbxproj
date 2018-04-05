@@ -40,11 +40,11 @@
 		34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */; };
 		34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABE203FD16300700503 /* ChromaHandle.swift */; };
 		34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABF203FD16300700503 /* ChromaAddButton.swift */; };
-		3497425A203611D5001E8F79 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34974259203611D4001E8F79 /* Realm.framework */; };
-		3497425B203611D5001E8F79 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34974259203611D4001E8F79 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3497425D203611D8001E8F79 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3497425C203611D8001E8F79 /* RealmSwift.framework */; };
-		3497425E203611D8001E8F79 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3497425C203611D8001E8F79 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34B2C370206B050D004BA8C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2C36F206B050D004BA8C1 /* Helper.swift */; };
+		34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; };
+		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34B4FEB92074A0CE00C72D90 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB82074A0CE00C72D90 /* Realm.framework */; };
+		34B4FEBA2074A0CE00C72D90 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB82074A0CE00C72D90 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,14 +87,14 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		341D5FAE20360093004A61A8 /* Embed Frameworks */ = {
+		34B4FEB72074A0C700C72D90 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3497425E203611D8001E8F79 /* RealmSwift.framework in Embed Frameworks */,
-				3497425B203611D5001E8F79 /* Realm.framework in Embed Frameworks */,
+				34B4FEBA2074A0CE00C72D90 /* Realm.framework in Embed Frameworks */,
+				34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,8 +134,6 @@
 		345E1C362047B60E00811395 /* TableViewCellDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDate.swift; sourceTree = "<group>"; };
 		345E1C3A2047B63C00811395 /* TableViewCellPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPriority.swift; sourceTree = "<group>"; };
 		345E1C3C2047B7D500811395 /* TableViewCellCourseAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCourseAssignment.swift; sourceTree = "<group>"; };
-		34974259203611D4001E8F79 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		3497425C203611D8001E8F79 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaShadeSlider.swift; sourceTree = "<group>"; };
 		34A29AB9203FD16300700503 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 		34A29ABB203FD16300700503 /* ChromaColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaColorPicker.swift; sourceTree = "<group>"; };
@@ -143,6 +141,8 @@
 		34A29ABE203FD16300700503 /* ChromaHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaHandle.swift; sourceTree = "<group>"; };
 		34A29ABF203FD16300700503 /* ChromaAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaAddButton.swift; sourceTree = "<group>"; };
 		34B2C36F206B050D004BA8C1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		34B4FEB82074A0CE00C72D90 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +150,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3497425D203611D8001E8F79 /* RealmSwift.framework in Frameworks */,
-				3497425A203611D5001E8F79 /* Realm.framework in Frameworks */,
+				34B4FEB92074A0CE00C72D90 /* Realm.framework in Frameworks */,
+				34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,8 +168,8 @@
 		341693A72007D35400C61B76 = {
 			isa = PBXGroup;
 			children = (
-				3497425C203611D8001E8F79 /* RealmSwift.framework */,
-				34974259203611D4001E8F79 /* Realm.framework */,
+				34B4FEB82074A0CE00C72D90 /* Realm.framework */,
+				34B4FEB42074A0C700C72D90 /* RealmSwift.framework */,
 				34A29AB7203FD16300700503 /* ChromaColorPicker */,
 				341693B22007D35400C61B76 /* Here */,
 				3419A19F207327AD0035804E /* Here Watch */,
@@ -319,8 +319,8 @@
 				341693AD2007D35400C61B76 /* Frameworks */,
 				341693AE2007D35400C61B76 /* Resources */,
 				341693CC2007DADB00C61B76 /* Run Script */,
-				341D5FAE20360093004A61A8 /* Embed Frameworks */,
 				3419A1C5207327AD0035804E /* Embed Watch Content */,
+				34B4FEB72074A0C700C72D90 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

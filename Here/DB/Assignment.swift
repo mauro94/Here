@@ -12,11 +12,11 @@ import RealmSwift
 class Assignment: Object {
     @objc dynamic var title = ""
     @objc dynamic var note = ""
-    @objc dynamic var priority = 0
+    @objc dynamic var priority = ""
     @objc dynamic var date: Date? = nil
     @objc dynamic var course: Course?
     
-    convenience init(title: String, note: String, priority: Int, date: Date, course: Course) {
+    convenience init(title: String, note: String, priority: String, date: Date, course: Course) {
         self.init()
         self.title = title
         self.note = note

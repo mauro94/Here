@@ -9,11 +9,9 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Outlets
     @IBOutlet weak var tfTitle: UITextField!
-    @IBOutlet weak var sgPriority: UISegmentedControl!
-    @IBOutlet weak var pCourse: UIPickerView!
     @IBOutlet weak var tvNotes: UITextView!
     @IBOutlet weak var btSave: UIButton!
     @IBOutlet weak var tbFields: UITableView!
@@ -41,23 +39,36 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         tbFields.tableFooterView = UIView()
 
         // Expanded cell prep
-        cellExpanded.append(false)
+        cellExpanded.append(true)
         cellExpanded.append(false)
         cellExpanded.append(false)
         
-        // Prep course picker
-        //self.pCourse.dataSource = self
-        //self.pCourse.delegate = self
+        // Prep data
         courses = realm.objects(Course.self)
         coursesArray = Array(courses)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Tetx view
+    override func viewDidLayoutSubviews() {
+        // Size modifications
+        if self.view.frame.width <= 320 {
+            let cellPriority = tbFields.cellForRow(at: IndexPath(row: 2, section: 0)) as! TableViewCellPriority
+            cellPriority.changeButtonText()
+            
+            for constraint in tvNotes.constraints {
+                if constraint.identifier == "noteHeight" {
+                    constraint.constant = 50
+                }
+            }
+            tvNotes.layoutIfNeeded()
+
+        }
+    }
+    
+    // MARK: - Text view
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.text == "Description") {
             textView.text = ""
@@ -74,41 +85,28 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
         textView.resignFirstResponder()
     }
     
-    // MARK: - Date Picker
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView,
-                    numberOfRowsInComponent component: Int) -> Int {
-        return coursesArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView,
-                             titleForRow row: Int,
-                             forComponent component: Int) -> String? {
-        return coursesArray[row].name
-    }
-    
-    @IBAction func dateChanged(_ sender: UIDatePicker) {
-        let cell = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM-dd"
-        
-        cell.lbSelectedDate.text = formatter.string(from: sender.date)
-    }
-    
     // MARK: - Actions
     @IBAction func save(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
-            // Define selected course
-            let selectedCourseIndex = pCourse.selectedRow(inComponent: 0)
+            let cellCourse = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellCourseAssignment
+            let cellDate = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
+            let cellPriority = tbFields.cellForRow(at: IndexPath(row: 2, section: 0)) as! TableViewCellPriority
             
+            // Define selected course
+            let pvCourse = cellCourse.pvCourses!
+            let selectedCourseIndex = pvCourse.selectedRow(inComponent: 0)
+            
+            // Define selected date
+            let date = cellDate.date
+            
+            // Define selected priority
+            let priority = cellPriority.selectedPriority
+
             // Save in realm
-            //let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: sgPriority.selectedSegmentIndex, date: dpDate.date, course: coursesArray[selectedCourseIndex])
+            let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: priority, date: date, course: coursesArray[selectedCourseIndex])
             try! realm.write {
-                //realm.add(assignment)
+                realm.add(assignment)
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -138,7 +136,13 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if cellExpanded[indexPath.row] {
-            return 220
+            if indexPath.row == 1 {
+                return 220
+            }
+            if indexPath.row == 2 {
+                return 100
+            }
+            return 200
         }
         else {
             return 44
@@ -172,15 +176,4 @@ class ViewControllerAssignmentsNew: UIViewController, UIPickerViewDelegate, UIPi
             return cell
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

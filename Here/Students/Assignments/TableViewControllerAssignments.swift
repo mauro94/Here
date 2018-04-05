@@ -21,26 +21,33 @@ class TableViewControllerAssignments: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         // Get data
         assignments = realm.objects(Assignment.self)
         assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
         
         // Button style
         btNewAssignment.layer.cornerRadius = 8.0
+    
+        // Remove navbar shadow
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.reloadData()
     }
     
@@ -52,7 +59,7 @@ class TableViewControllerAssignments: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         var numOfSections: Int = 0
         
-        if assignments.count > 1 {
+        if assignments.count > 0 {
             tableView.separatorStyle = .singleLine
             numOfSections = 1
             tableView.backgroundView = nil

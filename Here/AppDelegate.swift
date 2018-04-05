@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Color
         let darkColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
         
-        // Nav bar color
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().barTintColor = UIColor.white
-        
         // Tab bar color
         UITabBar.appearance().barTintColor = darkColor
         UITabBar.appearance().tintColor = UIColor.white
