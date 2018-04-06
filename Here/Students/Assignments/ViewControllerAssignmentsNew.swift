@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     // MARK: - Outlets
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tvNotes: UITextView!
@@ -27,6 +27,9 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
 
         // Button design
         btSave.layer.cornerRadius = 8.0
+        
+        // Text field
+        tfTitle.delegate = self
         
         // Textview
         tvNotes.delegate = self
@@ -68,6 +71,15 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Text view
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.text == "Description") {
@@ -86,7 +98,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     }
     
     // MARK: - Actions
-    @IBAction func quitarTeclado() {
+    @IBAction func dismissKeyboard() {
         view.endEditing(true)
     }
     
@@ -116,7 +128,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
             // Watch
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let watchConnectionHelper = appDelegate.watchConnectionHelper
-            watchConnectionHelper.sendData()
+            watchConnectionHelper.sendData(message:"new", assignment: assignment)
             
             self.dismiss(animated: true, completion: nil)
         }
@@ -131,6 +143,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     // MARK: - Table View
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
+        self.view.endEditing(true)
         
         if index == 0 {
             cellExpanded[1] = false

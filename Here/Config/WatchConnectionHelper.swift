@@ -44,8 +44,8 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     }
     
     // MARK: - Functions
-    func sendData() {
-        prepData()
+    func sendData(message: String, assignment: Assignment) {
+        prepData(message: message, assignment: assignment)
         do {
             try self.watchSession?.updateApplicationContext(assignmentsWatch)
         } catch {
@@ -53,22 +53,21 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
         }
     }
     
-    private func prepData() {
+    private func prepData(message: String, assignment: Assignment) {
+        assignmentsWatch = [String: [String: String]]()
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM-d"
         
-        for i in 0..<assignments.count {
-            assignmentsWatch[assignments[i].title] = [
-                "title": assignments[i].title,
-                "note": assignments[i].note,
-                "priority": assignments[i].priority,
-                "date": formatter.string(from: assignments[i].date!),
-                "courseName": (assignments[i].course?.name)!,
-                "courseColorRed": "\(assignments[i].course!.red)",
-                "courseColorGreen": "\(assignments[i].course!.green)",
-                "courseColorBlue": "\(assignments[i].course!.blue)",
-                "courseColorAlpha": "\(assignments[i].course!.alpha)"]
-        }
+        assignmentsWatch[message] = [
+            "title": assignment.title,
+            "note": assignment.note,
+            "priority": assignment.priority,
+            "date": formatter.string(from: assignment.date!),
+            "courseName": (assignment.course?.name)!,
+            "courseColorRed": "\(assignment.course!.red)",
+            "courseColorGreen": "\(assignment.course!.green)",
+            "courseColorBlue": "\(assignment.course!.blue)",
+            "courseColorAlpha": "\(assignment.course!.alpha)"]
     }
     
     // MARK: - Watch Session

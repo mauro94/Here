@@ -26,21 +26,45 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     private func storeData(data: [String: Any]) {
         let tempAssignments = data as! [String: [String: String]]
         let realm = try! Realm()
-
-        for (_, assignment) in tempAssignments {
-            let a = AssignmentEnhanced(
-                title: assignment["title"]!,
-                note: assignment["note"]!,
-                priority: assignment["priority"]!,
-                date: assignment["date"]!,
-                courseName: assignment["courseName"]!,
-                courseColorRed: Float(assignment["courseColorRed"]!)!,
-                courseColorGreen: Float(assignment["courseColorGreen"]!)!,
-                courseColorBlue: Float(assignment["courseColorBlue"]!)!,
-                courseColorAlpha: Float(assignment["courseColorAlpha"]!)!)
-            
-            try! realm.write {
-                realm.add(a)
+        print(tempAssignments)
+        print()
+        for (message, assignment) in tempAssignments {
+            switch message {
+                case "new":
+                    let a = AssignmentEnhanced(
+                        title: assignment["title"]!,
+                        note: assignment["note"]!,
+                        priority: assignment["priority"]!,
+                        date: assignment["date"]!,
+                        courseName: assignment["courseName"]!,
+                        courseColorRed: Float(assignment["courseColorRed"]!)!,
+                        courseColorGreen: Float(assignment["courseColorGreen"]!)!,
+                        courseColorBlue: Float(assignment["courseColorBlue"]!)!,
+                        courseColorAlpha: Float(assignment["courseColorAlpha"]!)!)
+                    try! realm.write {
+                        realm.add(a)
+                    }
+                case "delete":
+                    let predicate = NSPredicate(format: "title = %@", assignment["title"]!)
+                    let a = realm.objects(AssignmentEnhanced.self).filter(predicate)
+                    try! realm.write {
+                        realm.delete(a)
+                    }
+                default:
+                    let predicate = NSPredicate(format: "title = %@", message)
+                    let a = realm.objects(AssignmentEnhanced.self).filter(predicate)[0]
+                    print(a)
+                    try! realm.write {
+                        a.title = assignment["title"]!
+                        a.note = assignment["note"]!
+                        a.priority = assignment["priority"]!
+                        a.date = assignment["date"]!
+                        a.courseName = assignment["courseName"]!
+                        a.courseColorRed = Float(assignment["courseColorRed"]!)!
+                        a.courseColorGreen = Float(assignment["courseColorGreen"]!)!
+                        a.courseColorBlue = Float(assignment["courseColorBlue"]!)!
+                        a.courseColorAlpha = Float(assignment["courseColorAlpha"]!)!
+                    }
             }
         }
     }
@@ -53,13 +77,5 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
         print("watch received app context")
         storeData(data: applicationContext)
-        
-        //        if let temperature = applicationContext[] as? Assignment {
-        //            self.temperatureLabel.setText(temperature + "℃")
-        //        }
-        //
-        //        if let connected = applicationContext[DataKey.BLEConnected] as? Bool {
-        //            self.temperatureLabel.setTextColor(connected == true ? UIColor.white : UIColor.red)
-        //        }
     }
 }

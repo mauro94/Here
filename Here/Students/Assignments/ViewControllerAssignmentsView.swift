@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource   {
+class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate   {
     
     // MARK: - Outlets
     @IBOutlet weak var tfTitle: UITextField!
@@ -31,6 +31,9 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         
         // Button design
         btSaveChanges.layer.cornerRadius = 8.0
+        
+        // Text field
+        tfTitle.delegate = self
         
         // Prep course data
         courses = realm.objects(Course.self)
@@ -85,6 +88,15 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     // MARK: - Text view
     func textViewDidBeginEditing(_ textView: UITextView) {
         if (textView.text == "Description") {
@@ -123,13 +135,22 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
             
             // Define selected priority
             let priority = cellPriority.selectedPriority
+
+            let tempOldTitle = assignment.title
             
             // Save in realm
-            let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: priority, date: date, course: coursesArray[selectedCourseIndex])
             try! realm.write {
-                realm.add(assignment)
+                assignment.title = tfTitle.text!
+                assignment.note = tvNotes.text
+                assignment.priority = priority
+                assignment.date = date
+                assignment.course = coursesArray[selectedCourseIndex]
             }
-            self.dismiss(animated: true, completion: nil)
+            
+            // Watch
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let watchConnectionHelper = appDelegate.watchConnectionHelper
+            watchConnectionHelper.sendData(message: tempOldTitle, assignment: assignment)
         }
         else {
             // Alert fields are empty
@@ -142,9 +163,16 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     @IBAction func deleteAssignment(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Delete Assignment", message: "Are you sure you want to delete this assignment?", preferredStyle: .alert)
         let clearAction = UIAlertAction(title: "Delete", style: .destructive) { (alert: UIAlertAction!) -> Void in
+            
+            // Watch
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let watchConnectionHelper = appDelegate.watchConnectionHelper
+            watchConnectionHelper.sendData(message:"delete", assignment: self.assignment)
+
             try! self.realm.write {
                 self.realm.delete(self.assignment)
             }
+            
             self.navigationController?.popToRootViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
@@ -159,6 +187,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     // MARK: - Table View
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
+        self.view.endEditing(true)
         
         if index == 0 {
             cellExpanded[1] = false

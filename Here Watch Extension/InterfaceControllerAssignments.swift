@@ -17,22 +17,27 @@ class InterfaceControllerAssignments: WKInterfaceController {
     // MARK: - Variables
     let realm = try! Realm()
     var assignments: Results<AssignmentEnhanced>!
+    var token: NotificationToken!
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        assignments = realm.objects(AssignmentEnhanced.self)
-        loadTableData()
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        token = realm.observe { notification, realm in
+            self.assignments = realm.objects(AssignmentEnhanced.self)
+            self.loadTableData()
+        }
+        assignments = realm.objects(AssignmentEnhanced.self)
+        loadTableData()
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        token.invalidate()
     }
     
     private func loadTableData() {

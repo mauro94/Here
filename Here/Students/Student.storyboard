@@ -175,18 +175,10 @@
                                     <action selector="save:" destination="l3O-Qp-CYK" eventType="touchUpInside" id="MiC-gJ-qoE"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vjn-Q8-D9G">
-                                <rect key="frame" x="10" y="64" width="345" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" identifier="titleHeight" id="9Vs-Rg-2vc"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5K-K8-8fo">
                                 <rect key="frame" x="20" y="114" width="335" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" identifier="noteHeight" id="9O4-bC-c1o"/>
                                 </constraints>
@@ -216,6 +208,7 @@
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwc-7A-z76">
                                                     <rect key="frame" x="0.0" y="46" width="375" height="130"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="No3-3A-u5i"/>
                                                     </constraints>
@@ -355,6 +348,7 @@
                                                 <constraint firstItem="2Qp-dT-dzX" firstAttribute="width" secondItem="Yu3-hL-twj" secondAttribute="width" id="ynM-Tr-uHj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="btDays" destination="ovl-6A-b7H" id="7qS-Ay-8JY"/>
                                             <outlet property="btNextWeek" destination="Yu3-hL-twj" id="hbq-pP-guP"/>
@@ -434,6 +428,7 @@
                                                 <constraint firstItem="sIe-SN-K3a" firstAttribute="leading" secondItem="kdp-UU-rFd" secondAttribute="leading" constant="20" id="uYx-Ex-h9o"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="btHigh" destination="NUX-7N-MB7" id="Hqv-Vw-cP7"/>
                                             <outlet property="btLow" destination="OVc-BP-oMf" id="wXM-kc-5om"/>
@@ -444,6 +439,16 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vjn-Q8-D9G">
+                                <rect key="frame" x="10" y="64" width="345" height="50"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" identifier="titleHeight" id="9Vs-Rg-2vc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -1041,6 +1046,7 @@
                                 <state key="normal" title="Save Changes"/>
                                 <connections>
                                     <action selector="saveChanges:" destination="PnR-Rl-kQ2" eventType="touchUpInside" id="2I0-l5-kvP"/>
+                                    <segue destination="CE7-UD-zUC" kind="unwind" unwindAction="unwindEditWithUnwindSegue:" id="tA6-if-K8Z"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FcV-Xb-DQC">
@@ -1050,7 +1056,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBw-TY-yS8">
                                 <rect key="frame" x="20" y="50" width="335" height="80"/>
@@ -1351,6 +1357,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf8-2V-rQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CE7-UD-zUC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2846" y="-42"/>
         </scene>

@@ -34,9 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // Send data to watch
-        watchConnectionHelper.sendData()
-        
         return true
     }
 
