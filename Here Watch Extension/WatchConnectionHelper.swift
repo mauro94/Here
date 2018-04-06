@@ -8,23 +8,11 @@
 
 import Foundation
 import WatchConnectivity
-
-struct Assignment: Codable {
-    var title: String
-    var note: String
-    var priority: String
-    var date: String
-    var courseName: String
-    var courseColorRed: Float
-    var courseColorGreen: Float
-    var courseColorBlue: Float
-    var courseColorAlpha: Float
-}
+import RealmSwift
 
 class WatchConnectionHelper: NSObject, WCSessionDelegate {
     // MARK: - Variables
     fileprivate var watchSession: WCSession?
-    var assignments = [Assignment]()
     
     // MARK: - Constructor
     override init() {
@@ -35,14 +23,12 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     }
     
     // MARK: Functions
-    func getAssignments() -> [Assignment]{
-        return assignments
-    }
-    
     private func storeData(data: [String: Any]) {
         let tempAssignments = data as! [String: [String: String]]
+        let realm = try! Realm()
+
         for (_, assignment) in tempAssignments {
-            let a = Assignment(
+            let a = AssignmentEnhanced(
                 title: assignment["title"]!,
                 note: assignment["note"]!,
                 priority: assignment["priority"]!,
@@ -53,9 +39,10 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
                 courseColorBlue: Float(assignment["courseColorBlue"]!)!,
                 courseColorAlpha: Float(assignment["courseColorAlpha"]!)!)
             
-            assignments.append(a)
+            try! realm.write {
+                realm.add(a)
+            }
         }
-
     }
     
     // MARK: - Watch Session

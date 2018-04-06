@@ -8,14 +8,20 @@
 
 import Foundation
 import WatchKit
+import RealmSwift
 
 class InterfaceControllerAssignments: WKInterfaceController {
     // MARK: - Outlets
     @IBOutlet var tbAssignments: WKInterfaceTable!
     
+    // MARK: - Variables
+    let realm = try! Realm()
+    var assignments: Results<AssignmentEnhanced>!
+    
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
+        assignments = realm.objects(AssignmentEnhanced.self)
         loadTableData()
     }
     
@@ -30,10 +36,6 @@ class InterfaceControllerAssignments: WKInterfaceController {
     }
     
     private func loadTableData() {
-        let extensionDelegate = WKExtension.shared().delegate as! ExtensionDelegate
-        let watchConnectionHelper = extensionDelegate.watchConnectionHelper
-        let assignments = watchConnectionHelper.getAssignments()
-        
         tbAssignments.setNumberOfRows(assignments.count, withRowType: "TableRowControllerAssignment")
         
         for i in 0..<assignments.count {

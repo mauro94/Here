@@ -40,6 +40,13 @@
 		34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */; };
 		34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABE203FD16300700503 /* ChromaHandle.swift */; };
 		34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABF203FD16300700503 /* ChromaAddButton.swift */; };
+		348402BB207703BE00EEA5C4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348402BA207703BD00EEA5C4 /* Realm.framework */; };
+		348402BC207703BE00EEA5C4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 348402BA207703BD00EEA5C4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		348402C72077050200EEA5C4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C0207704E300EEA5C4 /* Realm.framework */; };
+		348402C82077050200EEA5C4 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C0207704E300EEA5C4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		348402CA2077050500EEA5C4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C1207704E300EEA5C4 /* RealmSwift.framework */; };
+		348402CB2077050500EEA5C4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C1207704E300EEA5C4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		348402CF20770CDD00EEA5C4 /* AssignmentEnhanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348402CE20770CDD00EEA5C4 /* AssignmentEnhanced.swift */; };
 		34A624CA2075D5EB00C68053 /* InterfaceControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */; };
 		34A624CC2075D91F00C68053 /* TableRowControllerAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624CB2075D91F00C68053 /* TableRowControllerAssignment.swift */; };
 		34A624CE2076742800C68053 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624CD2076742800C68053 /* WatchConnectionHelper.swift */; };
@@ -47,8 +54,6 @@
 		34B2C370206B050D004BA8C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2C36F206B050D004BA8C1 /* Helper.swift */; };
 		34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; };
 		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		34B4FEB92074A0CE00C72D90 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB82074A0CE00C72D90 /* Realm.framework */; };
-		34B4FEBA2074A0CE00C72D90 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB82074A0CE00C72D90 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,13 +96,25 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		348402C92077050200EEA5C4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				348402CB2077050500EEA5C4 /* RealmSwift.framework in Embed Frameworks */,
+				348402C82077050200EEA5C4 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		34B4FEB72074A0C700C72D90 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				34B4FEBA2074A0CE00C72D90 /* Realm.framework in Embed Frameworks */,
+				348402BC207703BE00EEA5C4 /* Realm.framework in Embed Frameworks */,
 				34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -138,6 +155,10 @@
 		345E1C362047B60E00811395 /* TableViewCellDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDate.swift; sourceTree = "<group>"; };
 		345E1C3A2047B63C00811395 /* TableViewCellPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPriority.swift; sourceTree = "<group>"; };
 		345E1C3C2047B7D500811395 /* TableViewCellCourseAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCourseAssignment.swift; sourceTree = "<group>"; };
+		348402BA207703BD00EEA5C4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		348402C0207704E300EEA5C4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Here Watch Extension/Realm.framework"; sourceTree = SOURCE_ROOT; };
+		348402C1207704E300EEA5C4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Here Watch Extension/RealmSwift.framework"; sourceTree = SOURCE_ROOT; };
+		348402CE20770CDD00EEA5C4 /* AssignmentEnhanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnhanced.swift; sourceTree = "<group>"; };
 		34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaShadeSlider.swift; sourceTree = "<group>"; };
 		34A29AB9203FD16300700503 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 		34A29ABB203FD16300700503 /* ChromaColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaColorPicker.swift; sourceTree = "<group>"; };
@@ -150,7 +171,6 @@
 		34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		34B2C36F206B050D004BA8C1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
-		34B4FEB82074A0CE00C72D90 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34B4FEB92074A0CE00C72D90 /* Realm.framework in Frameworks */,
+				348402BB207703BE00EEA5C4 /* Realm.framework in Frameworks */,
 				34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				348402CA2077050500EEA5C4 /* RealmSwift.framework in Frameworks */,
+				348402C72077050200EEA5C4 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +198,7 @@
 		341693A72007D35400C61B76 = {
 			isa = PBXGroup;
 			children = (
-				34B4FEB82074A0CE00C72D90 /* Realm.framework */,
+				348402BA207703BD00EEA5C4 /* Realm.framework */,
 				34B4FEB42074A0C700C72D90 /* RealmSwift.framework */,
 				34A29AB7203FD16300700503 /* ChromaColorPicker */,
 				341693B22007D35400C61B76 /* Here */,
@@ -233,8 +255,11 @@
 		3419A1AE207327AD0035804E /* Here Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				348402C0207704E300EEA5C4 /* Realm.framework */,
+				348402C1207704E300EEA5C4 /* RealmSwift.framework */,
 				3419A1AF207327AD0035804E /* InterfaceControllerHere.swift */,
 				34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */,
+				348402CE20770CDD00EEA5C4 /* AssignmentEnhanced.swift */,
 				34A624CB2075D91F00C68053 /* TableRowControllerAssignment.swift */,
 				34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */,
 				3419A1B1207327AD0035804E /* ExtensionDelegate.swift */,
@@ -368,6 +393,7 @@
 				3419A1A6207327AD0035804E /* Sources */,
 				3419A1A7207327AD0035804E /* Frameworks */,
 				3419A1A8207327AD0035804E /* Resources */,
+				348402C92077050200EEA5C4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,7 +411,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Mauro Amarante Esparza";
 				TargetAttributes = {
 					341693AF2007D35400C61B76 = {
@@ -506,6 +532,7 @@
 			files = (
 				3419A1B4207327AD0035804E /* NotificationController.swift in Sources */,
 				34A624CA2075D5EB00C68053 /* InterfaceControllerAssignments.swift in Sources */,
+				348402CF20770CDD00EEA5C4 /* AssignmentEnhanced.swift in Sources */,
 				34A624D020767FF200C68053 /* WatchConnectionHelper.swift in Sources */,
 				3419A1B6207327AD0035804E /* ComplicationController.swift in Sources */,
 				3419A1B2207327AD0035804E /* ExtensionDelegate.swift in Sources */,
@@ -571,6 +598,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -578,6 +606,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -628,6 +657,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -635,6 +665,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -746,6 +777,10 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CPUPH3A362;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Here\\ Watch\\ Extension",
+				);
 				INFOPLIST_FILE = "Here Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAE.Here.watchkitapp.watchkitextension;
@@ -764,6 +799,10 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CPUPH3A362;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Here\\ Watch\\ Extension",
+				);
 				INFOPLIST_FILE = "Here Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAE.Here.watchkitapp.watchkitextension;
