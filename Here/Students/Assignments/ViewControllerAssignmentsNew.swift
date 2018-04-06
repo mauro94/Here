@@ -112,6 +112,12 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
             try! realm.write {
                 realm.add(assignment)
             }
+            
+            // Watch
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let watchConnectionHelper = appDelegate.watchConnectionHelper
+            watchConnectionHelper.sendData()
+            
             self.dismiss(animated: true, completion: nil)
         }
         else {

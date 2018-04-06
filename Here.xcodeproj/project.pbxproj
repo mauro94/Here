@@ -40,6 +40,10 @@
 		34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */; };
 		34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABE203FD16300700503 /* ChromaHandle.swift */; };
 		34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABF203FD16300700503 /* ChromaAddButton.swift */; };
+		34A624CA2075D5EB00C68053 /* InterfaceControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */; };
+		34A624CC2075D91F00C68053 /* TableRowControllerAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624CB2075D91F00C68053 /* TableRowControllerAssignment.swift */; };
+		34A624CE2076742800C68053 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624CD2076742800C68053 /* WatchConnectionHelper.swift */; };
+		34A624D020767FF200C68053 /* WatchConnectionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */; };
 		34B2C370206B050D004BA8C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2C36F206B050D004BA8C1 /* Helper.swift */; };
 		34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; };
 		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -140,6 +144,10 @@
 		34A29ABC203FD16300700503 /* ColorModeToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModeToggleButton.swift; sourceTree = "<group>"; };
 		34A29ABE203FD16300700503 /* ChromaHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaHandle.swift; sourceTree = "<group>"; };
 		34A29ABF203FD16300700503 /* ChromaAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaAddButton.swift; sourceTree = "<group>"; };
+		34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceControllerAssignments.swift; sourceTree = "<group>"; };
+		34A624CB2075D91F00C68053 /* TableRowControllerAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowControllerAssignment.swift; sourceTree = "<group>"; };
+		34A624CD2076742800C68053 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
+		34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		34B2C36F206B050D004BA8C1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		34B4FEB82074A0CE00C72D90 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -226,6 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				3419A1AF207327AD0035804E /* InterfaceControllerHere.swift */,
+				34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */,
+				34A624CB2075D91F00C68053 /* TableRowControllerAssignment.swift */,
+				34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */,
 				3419A1B1207327AD0035804E /* ExtensionDelegate.swift */,
 				3419A1B3207327AD0035804E /* NotificationController.swift */,
 				3419A1B5207327AD0035804E /* ComplicationController.swift */,
@@ -304,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				34B2C36F206B050D004BA8C1 /* Helper.swift */,
+				34A624CD2076742800C68053 /* WatchConnectionHelper.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -484,6 +496,7 @@
 				34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */,
 				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,
 				34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */,
+				34A624CE2076742800C68053 /* WatchConnectionHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,8 +505,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3419A1B4207327AD0035804E /* NotificationController.swift in Sources */,
+				34A624CA2075D5EB00C68053 /* InterfaceControllerAssignments.swift in Sources */,
+				34A624D020767FF200C68053 /* WatchConnectionHelper.swift in Sources */,
 				3419A1B6207327AD0035804E /* ComplicationController.swift in Sources */,
 				3419A1B2207327AD0035804E /* ExtensionDelegate.swift in Sources */,
+				34A624CC2075D91F00C68053 /* TableRowControllerAssignment.swift in Sources */,
 				3419A1B0207327AD0035804E /* InterfaceControllerHere.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

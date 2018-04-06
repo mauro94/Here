@@ -18,7 +18,6 @@ class InterfaceControllerHere: WKInterfaceController {
         super.awake(withContext: context)
         
         super.becomeCurrentPage()
-
     }
     
     override func willActivate() {
@@ -30,5 +29,4 @@ class InterfaceControllerHere: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
 }

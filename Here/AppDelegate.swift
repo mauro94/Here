@@ -13,7 +13,7 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var watchConnectionHelper = WatchConnectionHelper()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -33,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 realm.add(noCourse)
             }
         }
+        
+        // Send data to watch
+        watchConnectionHelper.sendData()
+        
         return true
     }
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXA-ZI-G5d">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hXA-ZI-G5d">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -59,22 +59,49 @@
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Interface Controller Assignments-->
         <scene sceneID="y26-eI-eMe">
             <objects>
-                <controller id="yfP-Hh-J3d">
+                <controller id="yfP-Hh-J3d" customClass="InterfaceControllerAssignments" customModule="Here_Watch_Extension">
                     <items>
                         <label alignment="left" text="Assignments" id="Amj-B7-H2w">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
                         <table alignment="left" id="ksZ-gT-rmw">
                             <items>
-                                <tableRow id="ujr-cg-bBm">
-                                    <group key="rootItem" width="1" alignment="left" id="NeI-1U-4VC"/>
+                                <tableRow identifier="TableRowControllerAssignment" id="ujr-cg-bBm" customClass="TableRowControllerAssignment" customModule="Here_Watch_Extension">
+                                    <group key="rootItem" width="1" height="50" alignment="left" id="NeI-1U-4VC">
+                                        <items>
+                                            <group width="1" alignment="left" verticalAlignment="center" id="3TF-jM-Lsn">
+                                                <items>
+                                                    <group width="20" height="20" alignment="left" verticalAlignment="center" radius="10" id="urY-H6-gVC">
+                                                        <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </group>
+                                                    <group width="5" alignment="left" id="Byg-4v-pIR"/>
+                                                    <group width="1" alignment="left" layout="vertical" id="rgC-WC-4Uy">
+                                                        <items>
+                                                            <label alignment="left" text="Label" id="u4m-fP-dEc"/>
+                                                            <label alignment="left" text="Label" id="bbS-sB-s8O">
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="grColor" destination="urY-H6-gVC" id="2et-xd-aRs"/>
+                                        <outlet property="lbDate" destination="bbS-sB-s8O" id="Qvn-jk-b5H"/>
+                                        <outlet property="lbName" destination="u4m-fP-dEc" id="av7-zK-bI1"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="tbAssignments" destination="ksZ-gT-rmw" id="dwo-Zu-2sD"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
