@@ -54,6 +54,8 @@
 		34B2C370206B050D004BA8C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2C36F206B050D004BA8C1 /* Helper.swift */; };
 		34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; };
 		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34C607A72078432800AE9568 /* TableViewCellAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A62078432800AE9568 /* TableViewCellAssignment.swift */; };
+		34C607A92078442400AE9568 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A82078442400AE9568 /* Checkbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +173,8 @@
 		34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		34B2C36F206B050D004BA8C1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		34C607A62078432800AE9568 /* TableViewCellAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAssignment.swift; sourceTree = "<group>"; };
+		34C607A82078442400AE9568 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checkbox.swift; path = Here/Config/Checkbox.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,7 @@
 		34827B2E2043879900449A00 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
+				34C607A62078432800AE9568 /* TableViewCellAssignment.swift */,
 				34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */,
 				34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */,
 				34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */,
@@ -341,6 +346,7 @@
 			children = (
 				34B2C36F206B050D004BA8C1 /* Helper.swift */,
 				34A624CD2076742800C68053 /* WatchConnectionHelper.swift */,
+				34C607A82078442400AE9568 /* Checkbox.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				3419A1C920736C230035804E /* ViewControllerHere.swift in Sources */,
 				34363D312035FCBE00BF2656 /* Course.swift in Sources */,
 				34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */,
+				34C607A92078442400AE9568 /* Checkbox.swift in Sources */,
 				34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */,
 				34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */,
 				34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */,
@@ -519,6 +526,7 @@
 				345E1C3B2047B63C00811395 /* TableViewCellPriority.swift in Sources */,
 				34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */,
 				34363D2D2035FC9000BF2656 /* Assignment.swift in Sources */,
+				34C607A72078432800AE9568 /* TableViewCellAssignment.swift in Sources */,
 				34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */,
 				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,
 				34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */,

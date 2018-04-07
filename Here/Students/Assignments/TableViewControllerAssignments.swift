@@ -65,57 +65,49 @@ class TableViewControllerAssignments: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return assignments.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath) as! TableViewCellAssignment
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = assignments[indexPath.row].title
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM-d"
-        cell.detailTextLabel?.text = formatter.string(from: assignments[indexPath.row].date!)
+        
+        let red = CGFloat((assignments[indexPath.row].course?.red)!)
+        let green = CGFloat((assignments[indexPath.row].course?.green)!)
+        let blue = CGFloat((assignments[indexPath.row].course?.blue)!)
+        let alpha = CGFloat((assignments[indexPath.row].course?.alpha)!)
+        
+        let circle = UIBezierPath(arcCenter: CGPoint(x: 4,y: 4), radius: CGFloat(6), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circle.cgPath
+        
+        shapeLayer.fillColor = UIColor(red: red, green: green, blue: blue, alpha: alpha).cgColor
+        
+        cell.lbTitle.text = assignments[indexPath.row].title
+        cell.lbDate.text = formatter.string(from: assignments[indexPath.row].date!)
+        cell.lbCourse.text = assignments[indexPath.row].course?.name
+        cell.vColor.layer.addSublayer(shapeLayer)
+        
+        switch assignments[indexPath.row].priority {
+        case "Low Priority":
+            cell.lbTitle.font = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.thin)
+        case "Normal Priority":
+            cell.lbTitle.font = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.regular)
+        default:
+            cell.lbTitle.font = UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.semibold)
+        }
         
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
     
