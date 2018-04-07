@@ -12,9 +12,13 @@ import UIKit
 class ViewControllerLogin: UIViewController {
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
+    @IBOutlet weak var btLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button design
+        btLogin.layer.cornerRadius = 8.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +27,10 @@ class ViewControllerLogin: UIViewController {
 
     @IBAction func unwindAbout(unwindSegue: UIStoryboardSegue) {
         // Do nothing
+    }
+    
+    @IBAction func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func login(_ sender: UIButton) {

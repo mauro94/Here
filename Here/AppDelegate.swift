@@ -34,6 +34,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // TEMP ERASE
+        let classes = realm.objects(Class.self)
+        let course = realm.objects(Course.self)[0]
+        if classes.count == 0 {
+            let c = Class(group: "101", building: "A3", room: "303", beaconUUID: "B0702880-A295-A8AB-F734-031A98A512DA", beaconMinor: "1001", beaconMajor: "1", hour: "10", minute: "30", duration: "1.5", startDay: "9", startMonth: "1", startYear: "2018", endDay: "3", endMonth: "5", endYear: "2018", sunday: false, monday: true, tuesday: false, wednesday: false, thursday: true, friday: false, saturday: false, course: course)
+            
+            try! realm.write {
+                realm.add(c)
+            }
+        }
+        
         return true
     }
 

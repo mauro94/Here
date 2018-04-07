@@ -56,6 +56,12 @@
 		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34C607A72078432800AE9568 /* TableViewCellAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A62078432800AE9568 /* TableViewCellAssignment.swift */; };
 		34C607A92078442400AE9568 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A82078442400AE9568 /* Checkbox.swift */; };
+		34C607AB207880C500AE9568 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607AA207880C500AE9568 /* Class.swift */; };
+		34C607AD20789DDE00AE9568 /* ViewControllerAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607AC20789DDE00AE9568 /* ViewControllerAbout.swift */; };
+		34C607AF20789F3600AE9568 /* ViewControllerHereNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607AE20789F3600AE9568 /* ViewControllerHereNotifications.swift */; };
+		34C607B32078A93800AE9568 /* ViewControllerHereLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B22078A93800AE9568 /* ViewControllerHereLocation.swift */; };
+		34C607B52078AC1500AE9568 /* ViewControllerHereDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B42078AC1500AE9568 /* ViewControllerHereDevice.swift */; };
+		34C607B7207949EF00AE9568 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B6207949EF00AE9568 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +181,12 @@
 		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		34C607A62078432800AE9568 /* TableViewCellAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAssignment.swift; sourceTree = "<group>"; };
 		34C607A82078442400AE9568 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checkbox.swift; path = Here/Config/Checkbox.swift; sourceTree = SOURCE_ROOT; };
+		34C607AA207880C500AE9568 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		34C607AC20789DDE00AE9568 /* ViewControllerAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAbout.swift; sourceTree = "<group>"; };
+		34C607AE20789F3600AE9568 /* ViewControllerHereNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHereNotifications.swift; sourceTree = "<group>"; };
+		34C607B22078A93800AE9568 /* ViewControllerHereLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHereLocation.swift; sourceTree = "<group>"; };
+		34C607B42078AC1500AE9568 /* ViewControllerHereDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHereDevice.swift; sourceTree = "<group>"; };
+		34C607B6207949EF00AE9568 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				341693B32007D35400C61B76 /* AppDelegate.swift */,
-				341693B72007D35400C61B76 /* Main.storyboard */,
 				341693BC2007D35400C61B76 /* LaunchScreen.storyboard */,
 				34B2C371206B052B004BA8C1 /* Config */,
 				3418EBF92022617A00223A72 /* Login */,
@@ -241,6 +252,11 @@
 		3418EBF92022617A00223A72 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				341693B72007D35400C61B76 /* Main.storyboard */,
+				34C607B22078A93800AE9568 /* ViewControllerHereLocation.swift */,
+				34C607B42078AC1500AE9568 /* ViewControllerHereDevice.swift */,
+				34C607AE20789F3600AE9568 /* ViewControllerHereNotifications.swift */,
+				34C607AC20789DDE00AE9568 /* ViewControllerAbout.swift */,
 				341693B52007D35400C61B76 /* ViewControllerLogin.swift */,
 			);
 			path = Login;
@@ -299,7 +315,9 @@
 			isa = PBXGroup;
 			children = (
 				34363D302035FCBE00BF2656 /* Course.swift */,
+				34C607B6207949EF00AE9568 /* Student.swift */,
 				34363D2C2035FC9000BF2656 /* Assignment.swift */,
+				34C607AA207880C500AE9568 /* Class.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -507,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C607AF20789F3600AE9568 /* ViewControllerHereNotifications.swift in Sources */,
 				345E1C3D2047B7D500811395 /* TableViewCellCourseAssignment.swift in Sources */,
 				34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */,
 				34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */,
@@ -514,7 +533,9 @@
 				34827B28203FD61B00449A00 /* UIColor+Utilities.swift in Sources */,
 				3419A1C920736C230035804E /* ViewControllerHere.swift in Sources */,
 				34363D312035FCBE00BF2656 /* Course.swift in Sources */,
+				34C607B7207949EF00AE9568 /* Student.swift in Sources */,
 				34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */,
+				34C607AB207880C500AE9568 /* Class.swift in Sources */,
 				34C607A92078442400AE9568 /* Checkbox.swift in Sources */,
 				34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */,
 				34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */,
@@ -523,9 +544,12 @@
 				34827B27203FD61B00449A00 /* ChromaShadeSlider.swift in Sources */,
 				345E1C372047B60E00811395 /* TableViewCellDate.swift in Sources */,
 				341693B42007D35400C61B76 /* AppDelegate.swift in Sources */,
+				34C607B52078AC1500AE9568 /* ViewControllerHereDevice.swift in Sources */,
+				34C607B32078A93800AE9568 /* ViewControllerHereLocation.swift in Sources */,
 				345E1C3B2047B63C00811395 /* TableViewCellPriority.swift in Sources */,
 				34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */,
 				34363D2D2035FC9000BF2656 /* Assignment.swift in Sources */,
+				34C607AD20789DDE00AE9568 /* ViewControllerAbout.swift in Sources */,
 				34C607A72078432800AE9568 /* TableViewCellAssignment.swift in Sources */,
 				34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */,
 				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,

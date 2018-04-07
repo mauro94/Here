@@ -59,3 +59,4 @@ func alertOk(title: String, message: String, vc: UIViewController) -> Void {
     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
     vc.present(alert, animated: true, completion: nil)
 }
+

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
+import RealmSwift
 
-class ViewControllerHere: UIViewController {
+class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
     // MARK: - Outlets
     @IBOutlet weak var btAbsence: UIButton!
     @IBOutlet weak var btAssignment: UIButton!
@@ -19,7 +21,10 @@ class ViewControllerHere: UIViewController {
     @IBOutlet weak var lbTime: UILabel!
     
     // MARK: - Variables
-    
+    let realm = try! Realm()
+    var classes: Results<Class>!
+    let locationManager = CLLocationManager()
+    var beaconRegion: CLBeaconRegion!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,22 @@ class ViewControllerHere: UIViewController {
         btHere.layer.cornerRadius = 0.5 * btHere.bounds.size.width
         btHere.clipsToBounds = true
         btHere.backgroundColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
+        
+        // Get data
+        classes = realm.objects(Class.self)
+        
+        // iBeacons
+        locationManager.delegate = self
+        
+        if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self){
+            if CLLocationManager.isRangingAvailable() {
+                for i in 0 ..< classes.count {
+                    startMonitoringProject(i: i)
+                }
+            }
+        }
+        
+        locationManager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,14 +84,51 @@ class ViewControllerHere: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Location
+    func startMonitoringProject(i: Int) {
+        let beaconRegion = CLBeaconRegion(proximityUUID: UUID(uuidString: classes[i].beaconUUID)!,
+                                          major: UInt16(classes[i].beaconMajor)!,
+                                          minor: UInt16(classes[i].beaconMinor)!,
+                                          identifier: (classes[i].course?.name)!)
+        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startRangingBeacons(in: beaconRegion)
     }
-    */
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        if (beacons.count > 0) {
+            for beacon in beacons {
+                let beaconClass = realm.objects(Class.self).filter("beaconUUID = %@ AND beaconMajor = %@ AND beaconMinor = %@", beacon.proximityUUID, "\(beacon.major)", "\(beacon.minor)")
+                if beaconClass.count > 0 {
+                    let c = beaconClass[0]
+                    
+                    let date = Date()
+                    let calendar = Calendar.current
+                    let hour = calendar.component(.hour, from: date)
+                    let minute = calendar.component(.minute, from: date)
+                    
+                    if hour == Int(c.hour) && minute == Int(c.minute) {
+                        btHere.isEnabled = true
+                    }
+                    else {
+                        btHere.isEnabled = false
+                    }
+                }
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print(error)
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, rangingBeaconsDidFailFor region: CLBeaconRegion, withError error: Error) {
+        print(error)
+    }
 
 }
