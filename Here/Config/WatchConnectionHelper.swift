@@ -63,11 +63,11 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
             "note": assignment.note,
             "priority": assignment.priority,
             "date": formatter.string(from: assignment.date!),
-            "courseName": (assignment.course?.name)!,
-            "courseColorRed": "\(assignment.course!.red)",
-            "courseColorGreen": "\(assignment.course!.green)",
-            "courseColorBlue": "\(assignment.course!.blue)",
-            "courseColorAlpha": "\(assignment.course!.alpha)"]
+            "courseName": (assignment.classCourse?.course!.name)!,
+            "courseColorRed": "\(assignment.classCourse!.red)",
+            "courseColorGreen": "\(assignment.classCourse!.green)",
+            "courseColorBlue": "\(assignment.classCourse!.blue)",
+            "courseColorAlpha": "\(assignment.classCourse!.alpha)"]
     }
     
     // MARK: - Watch Session

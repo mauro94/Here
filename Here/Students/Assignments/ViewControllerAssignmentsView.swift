@@ -20,8 +20,8 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     // MARK: - Variables
     var assignment: Assignment!
     let realm = try! Realm()
-    var courses: Results<Course>!
-    var coursesArray = [Course]()
+    var classes: Results<Class>!
+    var classesArray = [Class]()
     var cellExpanded = [Bool]()
 
     override func viewDidLoad() {
@@ -35,9 +35,9 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         // Text field
         tfTitle.delegate = self
         
-        // Prep course data
-        courses = realm.objects(Course.self)
-        coursesArray = Array(courses)
+        // Prep class data
+        classes = realm.objects(Class.self)
+        classesArray = Array(classes)
         
         // Textview
         tvNotes.delegate = self
@@ -58,12 +58,12 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         tfTitle.text = assignment.title
         tvNotes.text = assignment.note
         
-        let cellCourse = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellCourseAssignment
+        let cellClass = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellClassAssignment
         let cellDate = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
         let cellPriority = tbFields.cellForRow(at: IndexPath(row: 2, section: 0)) as! TableViewCellPriority
         
-        let courseIndex = courses.index(of: assignment.course!)
-        cellCourse.setCourse(courseIndex: courseIndex!)
+        let classIndex = classes.index(of: assignment.classCourse!)
+        cellClass.setClass(classIndex: classIndex!)
         cellDate.setDate(date: assignment.date!)
         cellPriority.setPriority(priority: assignment.priority)
     }
@@ -122,13 +122,13 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     @IBAction func saveChanges(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
-            let cellCourse = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellCourseAssignment
+            let cellClass = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellClassAssignment
             let cellDate = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
             let cellPriority = tbFields.cellForRow(at: IndexPath(row: 2, section: 0)) as! TableViewCellPriority
             
-            // Define selected course
-            let pvCourse = cellCourse.pvCourses!
-            let selectedCourseIndex = pvCourse.selectedRow(inComponent: 0)
+            // Define selected class
+            let pvClass = cellClass.pvClass!
+            let selectedClassIndex = pvClass.selectedRow(inComponent: 0)
             
             // Define selected date
             let date = cellDate.date
@@ -144,7 +144,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
                 assignment.note = tvNotes.text
                 assignment.priority = priority
                 assignment.date = date
-                assignment.course = coursesArray[selectedCourseIndex]
+                assignment.classCourse = classesArray[selectedClassIndex]
             }
             
             // Watch
@@ -238,7 +238,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "classCell", for: indexPath)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             return cell

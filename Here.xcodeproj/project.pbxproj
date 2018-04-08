@@ -24,16 +24,16 @@
 		3419A1C920736C230035804E /* ViewControllerHere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419A1C820736C230035804E /* ViewControllerHere.swift */; };
 		34363D1B2035F7BE00BF2656 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34363D1A2035F7BE00BF2656 /* Student.storyboard */; };
 		34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */; };
-		34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */; };
+		34363D202035F9CF00BF2656 /* TableViewControllerClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1F2035F9CF00BF2656 /* TableViewControllerClasses.swift */; };
 		34363D222035F9F300BF2656 /* ViewControllerAssignmentsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */; };
 		34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */; };
-		34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */; };
-		34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */; };
+		34363D262035FA4C00BF2656 /* ViewControllerClassesNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D252035FA4C00BF2656 /* ViewControllerClassesNew.swift */; };
+		34363D282035FA5500BF2656 /* ViewControllerClassesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D272035FA5500BF2656 /* ViewControllerClassesView.swift */; };
 		34363D2D2035FC9000BF2656 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D2C2035FC9000BF2656 /* Assignment.swift */; };
 		34363D312035FCBE00BF2656 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D302035FCBE00BF2656 /* Course.swift */; };
 		345E1C372047B60E00811395 /* TableViewCellDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E1C362047B60E00811395 /* TableViewCellDate.swift */; };
 		345E1C3B2047B63C00811395 /* TableViewCellPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E1C3A2047B63C00811395 /* TableViewCellPriority.swift */; };
-		345E1C3D2047B7D500811395 /* TableViewCellCourseAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E1C3C2047B7D500811395 /* TableViewCellCourseAssignment.swift */; };
+		345E1C3D2047B7D500811395 /* TableViewCellClassAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E1C3C2047B7D500811395 /* TableViewCellClassAssignment.swift */; };
 		34827B27203FD61B00449A00 /* ChromaShadeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */; };
 		34827B28203FD61B00449A00 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29AB9203FD16300700503 /* UIColor+Utilities.swift */; };
 		34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A29ABB203FD16300700503 /* ChromaColorPicker.swift */; };
@@ -62,6 +62,7 @@
 		34C607B32078A93800AE9568 /* ViewControllerHereLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B22078A93800AE9568 /* ViewControllerHereLocation.swift */; };
 		34C607B52078AC1500AE9568 /* ViewControllerHereDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B42078AC1500AE9568 /* ViewControllerHereDevice.swift */; };
 		34C607B7207949EF00AE9568 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B6207949EF00AE9568 /* Student.swift */; };
+		34C607B920797CDE00AE9568 /* ViewControllerMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607B820797CDE00AE9568 /* ViewControllerMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,16 +154,16 @@
 		3419A1C820736C230035804E /* ViewControllerHere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHere.swift; sourceTree = "<group>"; };
 		34363D1A2035F7BE00BF2656 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
 		34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAssignments.swift; sourceTree = "<group>"; };
-		34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerCourses.swift; sourceTree = "<group>"; };
+		34363D1F2035F9CF00BF2656 /* TableViewControllerClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerClasses.swift; sourceTree = "<group>"; };
 		34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssignmentsNew.swift; sourceTree = "<group>"; };
 		34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssignmentsView.swift; sourceTree = "<group>"; };
-		34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoursesNew.swift; sourceTree = "<group>"; };
-		34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCoursesView.swift; sourceTree = "<group>"; };
+		34363D252035FA4C00BF2656 /* ViewControllerClassesNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerClassesNew.swift; sourceTree = "<group>"; };
+		34363D272035FA5500BF2656 /* ViewControllerClassesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerClassesView.swift; sourceTree = "<group>"; };
 		34363D2C2035FC9000BF2656 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		34363D302035FCBE00BF2656 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		345E1C362047B60E00811395 /* TableViewCellDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDate.swift; sourceTree = "<group>"; };
 		345E1C3A2047B63C00811395 /* TableViewCellPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellPriority.swift; sourceTree = "<group>"; };
-		345E1C3C2047B7D500811395 /* TableViewCellCourseAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCourseAssignment.swift; sourceTree = "<group>"; };
+		345E1C3C2047B7D500811395 /* TableViewCellClassAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellClassAssignment.swift; sourceTree = "<group>"; };
 		348402BA207703BD00EEA5C4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		348402C0207704E300EEA5C4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Here Watch Extension/Realm.framework"; sourceTree = SOURCE_ROOT; };
 		348402C1207704E300EEA5C4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Here Watch Extension/RealmSwift.framework"; sourceTree = SOURCE_ROOT; };
@@ -187,6 +188,7 @@
 		34C607B22078A93800AE9568 /* ViewControllerHereLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHereLocation.swift; sourceTree = "<group>"; };
 		34C607B42078AC1500AE9568 /* ViewControllerHereDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHereDevice.swift; sourceTree = "<group>"; };
 		34C607B6207949EF00AE9568 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		34C607B820797CDE00AE9568 /* ViewControllerMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +308,7 @@
 				34363D1A2035F7BE00BF2656 /* Student.storyboard */,
 				3419A1CA20736C300035804E /* Here */,
 				34827B2E2043879900449A00 /* Assignments */,
-				34827B2D2043874E00449A00 /* Courses */,
+				34C607BA20797CE400AE9568 /* Me */,
 			);
 			path = Students;
 			sourceTree = "<group>";
@@ -322,24 +324,24 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
-		34827B2D2043874E00449A00 /* Courses */ = {
+		34827B2D2043874E00449A00 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				34363D1F2035F9CF00BF2656 /* TableViewControllerCourses.swift */,
-				34363D252035FA4C00BF2656 /* ViewControllerCoursesNew.swift */,
-				34363D272035FA5500BF2656 /* ViewControllerCoursesView.swift */,
+				34363D1F2035F9CF00BF2656 /* TableViewControllerClasses.swift */,
+				34363D252035FA4C00BF2656 /* ViewControllerClassesNew.swift */,
+				34363D272035FA5500BF2656 /* ViewControllerClassesView.swift */,
 			);
-			path = Courses;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		34827B2E2043879900449A00 /* Assignments */ = {
 			isa = PBXGroup;
 			children = (
-				34C607A62078432800AE9568 /* TableViewCellAssignment.swift */,
 				34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */,
 				34363D212035F9F300BF2656 /* ViewControllerAssignmentsNew.swift */,
 				34363D232035FA3F00BF2656 /* ViewControllerAssignmentsView.swift */,
-				345E1C3C2047B7D500811395 /* TableViewCellCourseAssignment.swift */,
+				34C607A62078432800AE9568 /* TableViewCellAssignment.swift */,
+				345E1C3C2047B7D500811395 /* TableViewCellClassAssignment.swift */,
 				345E1C362047B60E00811395 /* TableViewCellDate.swift */,
 				345E1C3A2047B63C00811395 /* TableViewCellPriority.swift */,
 			);
@@ -367,6 +369,15 @@
 				34C607A82078442400AE9568 /* Checkbox.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		34C607BA20797CE400AE9568 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				34C607B820797CDE00AE9568 /* ViewControllerMe.swift */,
+				34827B2D2043874E00449A00 /* Classes */,
+			);
+			path = Me;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,11 +537,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				34C607AF20789F3600AE9568 /* ViewControllerHereNotifications.swift in Sources */,
-				345E1C3D2047B7D500811395 /* TableViewCellCourseAssignment.swift in Sources */,
-				34363D282035FA5500BF2656 /* ViewControllerCoursesView.swift in Sources */,
-				34363D262035FA4C00BF2656 /* ViewControllerCoursesNew.swift in Sources */,
+				345E1C3D2047B7D500811395 /* TableViewCellClassAssignment.swift in Sources */,
+				34363D282035FA5500BF2656 /* ViewControllerClassesView.swift in Sources */,
+				34363D262035FA4C00BF2656 /* ViewControllerClassesNew.swift in Sources */,
 				34B2C370206B050D004BA8C1 /* Helper.swift in Sources */,
 				34827B28203FD61B00449A00 /* UIColor+Utilities.swift in Sources */,
+				34C607B920797CDE00AE9568 /* ViewControllerMe.swift in Sources */,
 				3419A1C920736C230035804E /* ViewControllerHere.swift in Sources */,
 				34363D312035FCBE00BF2656 /* Course.swift in Sources */,
 				34C607B7207949EF00AE9568 /* Student.swift in Sources */,
@@ -539,7 +551,7 @@
 				34C607A92078442400AE9568 /* Checkbox.swift in Sources */,
 				34827B2B203FD61B00449A00 /* ChromaHandle.swift in Sources */,
 				34363D242035FA3F00BF2656 /* ViewControllerAssignmentsView.swift in Sources */,
-				34363D202035F9CF00BF2656 /* TableViewControllerCourses.swift in Sources */,
+				34363D202035F9CF00BF2656 /* TableViewControllerClasses.swift in Sources */,
 				341693B62007D35400C61B76 /* ViewControllerLogin.swift in Sources */,
 				34827B27203FD61B00449A00 /* ChromaShadeSlider.swift in Sources */,
 				345E1C372047B60E00811395 /* TableViewCellDate.swift in Sources */,

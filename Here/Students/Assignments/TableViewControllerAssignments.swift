@@ -10,18 +10,17 @@ import UIKit
 import RealmSwift
 
 class TableViewControllerAssignments: UITableViewController {
-    // MARK: - Variables
-    let realm = try! Realm()
-    var assignments: Results<Assignment>!
-
     // MARK: - Outlets
     @IBOutlet var vNoAssignments: UIView!
     @IBOutlet weak var btNewAssignment: UIButton!
     
+    // MARK: - Variables
+    let realm = try! Realm()
+    var assignments: Results<Assignment>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         // Get data
         assignments = realm.objects(Assignment.self)
         assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
@@ -80,10 +79,10 @@ class TableViewControllerAssignments: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM-d"
         
-        let red = CGFloat((assignments[indexPath.row].course?.red)!)
-        let green = CGFloat((assignments[indexPath.row].course?.green)!)
-        let blue = CGFloat((assignments[indexPath.row].course?.blue)!)
-        let alpha = CGFloat((assignments[indexPath.row].course?.alpha)!)
+        let red = CGFloat((assignments[indexPath.row].classCourse?.red)!)
+        let green = CGFloat((assignments[indexPath.row].classCourse?.green)!)
+        let blue = CGFloat((assignments[indexPath.row].classCourse?.blue)!)
+        let alpha = CGFloat((assignments[indexPath.row].classCourse?.alpha)!)
         
         let circle = UIBezierPath(arcCenter: CGPoint(x: 4,y: 4), radius: CGFloat(6), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         
@@ -94,7 +93,7 @@ class TableViewControllerAssignments: UITableViewController {
         
         cell.lbTitle.text = assignments[indexPath.row].title
         cell.lbDate.text = formatter.string(from: assignments[indexPath.row].date!)
-        cell.lbCourse.text = assignments[indexPath.row].course?.name
+        cell.lbCourse.text = assignments[indexPath.row].classCourse?.course?.name
         cell.vColor.layer.addSublayer(shapeLayer)
         
         switch assignments[indexPath.row].priority {

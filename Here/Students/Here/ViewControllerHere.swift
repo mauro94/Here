@@ -50,7 +50,6 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
         btHere.frame = CGRect(x: btHere.frame.origin.x, y: btHere.frame.origin.y, width: btHere.frame.width, height: btHere.frame.height)
         btHere.layer.cornerRadius = 0.5 * btHere.bounds.size.width
         btHere.clipsToBounds = true
-        btHere.backgroundColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
         
         // Get data
         classes = realm.objects(Class.self)
@@ -97,7 +96,7 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if (beacons.count > 0) {
             for beacon in beacons {
-                let beaconClass = realm.objects(Class.self).filter("beaconUUID = %@ AND beaconMajor = %@ AND beaconMinor = %@", beacon.proximityUUID, "\(beacon.major)", "\(beacon.minor)")
+                let beaconClass = realm.objects(Class.self).filter("beaconUUID = %@ AND beaconMajor = %@ AND beaconMinor = %@", "\(beacon.proximityUUID)", "\(beacon.major)", "\(beacon.minor)")
                 if beaconClass.count > 0 {
                     let c = beaconClass[0]
                     
@@ -108,9 +107,11 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
                     
                     if hour == Int(c.hour) && minute == Int(c.minute) {
                         btHere.isEnabled = true
+                        btHere.alpha = 1
                     }
                     else {
                         btHere.isEnabled = false
+                        btHere.alpha = 0.5
                     }
                 }
             }

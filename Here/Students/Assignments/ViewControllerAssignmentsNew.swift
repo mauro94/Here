@@ -18,8 +18,8 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     
     // MARK: - Variables
     let realm = try! Realm()
-    var courses: Results<Course>!
-    var coursesArray = [Course]()
+    var classes: Results<Class>!
+    var classesArray = [Class]()
     var cellExpanded = [Bool]()
 
     override func viewDidLoad() {
@@ -47,8 +47,8 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
         cellExpanded.append(false)
         
         // Prep data
-        courses = realm.objects(Course.self)
-        coursesArray = Array(courses)
+        classes = realm.objects(Class.self)
+        classesArray = Array(classes)
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,13 +105,13 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     @IBAction func save(_ sender: UIButton) {
         // Verify fields have text
         if tfTitle.text != "" {
-            let cellCourse = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellCourseAssignment
+            let cellClass = tbFields.cellForRow(at: IndexPath(row: 0, section: 0)) as! TableViewCellClassAssignment
             let cellDate = tbFields.cellForRow(at: IndexPath(row: 1, section: 0)) as! TableViewCellDate
             let cellPriority = tbFields.cellForRow(at: IndexPath(row: 2, section: 0)) as! TableViewCellPriority
             
-            // Define selected course
-            let pvCourse = cellCourse.pvCourses!
-            let selectedCourseIndex = pvCourse.selectedRow(inComponent: 0)
+            // Define selected class
+            let pvClass = cellClass.pvClass!
+            let selectedClassIndex = pvClass.selectedRow(inComponent: 0)
             
             // Define selected date
             let date = cellDate.date
@@ -120,7 +120,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
             let priority = cellPriority.selectedPriority
 
             // Save in realm
-            let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: priority, date: date, course: coursesArray[selectedCourseIndex])
+            let assignment = Assignment(title: tfTitle.text!, note: tvNotes.text, priority: priority, date: date, classCourse: classesArray[selectedClassIndex])
             try! realm.write {
                 realm.add(assignment)
             }
@@ -194,7 +194,7 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "classCell", for: indexPath)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             return cell

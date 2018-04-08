@@ -1,5 +1,5 @@
 //
-//  ViewControllerCoursesNew.swift
+//  ViewControllerClassesNew.swift
 //  Here
 //
 //  Created by Mauro Amarante Esparza on 2/15/18.
@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaColorPickerDelegate {
+class ViewControllerClassesNew: UIViewController, UITextFieldDelegate, ChromaColorPickerDelegate {
     // MARK: - Outlets
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tfName: UITextField!
@@ -26,14 +26,6 @@ class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaCol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Color
-        let darkColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
-        
-        // Status bar color
-        let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
-        statusBarView.backgroundColor = darkColor
-        view.addSubview(statusBarView)
         
         // Button design
         btSave.layer.cornerRadius = 8.0
@@ -62,7 +54,6 @@ class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaCol
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func quitarTeclado() {
@@ -85,7 +76,7 @@ class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaCol
         return false
     }
     
-    @IBAction func saveCourse(_ sender: UIButton) {
+    @IBAction func saveClass(_ sender: UIButton) {
         // Verify fields have text
         if tfName.text != "" && tfGroup.text != "" && tfBuilding.text != "" && tfRoom.text != "" {
             // Get selected color
@@ -97,18 +88,14 @@ class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaCol
             colorPicker.currentColor.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
             
             // Save in realm
-            let course = Course(
-                name: tfName.text!,
-                group: tfGroup.text!,
-                building: tfBuilding.text!,
-                room: tfRoom.text!,
-                red: Float(fRed),
-                green: Float(fGreen),
-                blue: Float(fBlue),
-                alpha: Float(fAlpha))
+            let course = Course(name: tfName.text!)
+            let newClass = Class(group: tfGroup.text!, building: tfBuilding.text!, room: tfRoom.text!, red: Float(fRed), green: Float(fGreen), blue: Float(fBlue), alpha: Float(fAlpha), course: course)
+            
             try! realm.write {
                 realm.add(course)
+                realm.add(newClass)
             }
+            
             self.dismiss(animated: true, completion: nil)
         }
         else {
@@ -118,15 +105,4 @@ class ViewControllerCoursesNew: UIViewController, UITextFieldDelegate, ChromaCol
             present(alert, animated: true, completion: nil)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

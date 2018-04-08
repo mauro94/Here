@@ -1,5 +1,5 @@
 //
-//  TableViewCellCourseAssignment.swift
+//  TableViewCellClassAssignment.swift
 //  Here
 //
 //  Created by Mauro Amarante Esparza on 2/28/18.
@@ -9,25 +9,25 @@
 import UIKit
 import RealmSwift
 
-class TableViewCellCourseAssignment: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class TableViewCellClassAssignment: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - Outlets
-    @IBOutlet weak var lbCourseName: UILabel!
-    @IBOutlet weak var pvCourses: UIPickerView!
-    @IBOutlet weak var vCoursecolor: UIView!
+    @IBOutlet weak var lbClassName: UILabel!
+    @IBOutlet weak var pvClass: UIPickerView!
+    @IBOutlet weak var vClasscolor: UIView!
     
     // MARK: - Variables
     let realm = try! Realm()
-    var courses: Results<Course>!
-    var coursesArray = [Course]()
+    var classes: Results<Class>!
+    var classesArray = [Class]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Get course data
-        self.pvCourses.dataSource = self
-        self.pvCourses.delegate = self
-        courses = realm.objects(Course.self)
-        coursesArray = Array(courses)
+        // Get class data
+        self.pvClass.dataSource = self
+        self.pvClass.delegate = self
+        classes = realm.objects(Class.self)
+        classesArray = Array(classes)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,17 +43,17 @@ class TableViewCellCourseAssignment: UITableViewCell, UIPickerViewDelegate, UIPi
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circle.cgPath
         
-        let red = CGFloat(courses[row].red)
-        let green = CGFloat(courses[row].green)
-        let blue = CGFloat(courses[row].blue)
-        let alpha = CGFloat(courses[row].alpha)
+        let red = CGFloat(classes[row].red)
+        let green = CGFloat(classes[row].green)
+        let blue = CGFloat(classes[row].blue)
+        let alpha = CGFloat(classes[row].alpha)
         
         shapeLayer.fillColor = UIColor(red: red, green: green, blue: blue, alpha: alpha).cgColor
         
-        vCoursecolor.layer.addSublayer(shapeLayer)
-        lbCourseName.text = coursesArray[row].name
+        vClasscolor.layer.addSublayer(shapeLayer)
+        lbClassName.text = classesArray[row].course?.name
         
-        return coursesArray[row].name
+        return classesArray[row].course?.name
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -61,10 +61,10 @@ class TableViewCellCourseAssignment: UITableViewCell, UIPickerViewDelegate, UIPi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return coursesArray.count
+        return classesArray.count
     }
     
-    func setCourse(courseIndex: Int) {
-        pvCourses.selectRow(courseIndex, inComponent: 0, animated: true)
+    func setClass(classIndex: Int) {
+        pvClass.selectRow(classIndex, inComponent: 0, animated: true)
     }
 }

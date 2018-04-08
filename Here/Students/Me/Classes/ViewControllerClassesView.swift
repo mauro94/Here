@@ -1,5 +1,5 @@
 //
-//  ViewControllerCoursesView.swift
+//  ViewControllerClassesView.swift
 //  Here
 //
 //  Created by Mauro Amarante Esparza on 2/15/18.
@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaColorPickerDelegate {
+class ViewControllerClassesView: UIViewController, UITextFieldDelegate, ChromaColorPickerDelegate {
     // MARK: - Outlets
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var tfGroup: UITextField!
@@ -19,18 +19,15 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
     @IBOutlet weak var vColor: UIView!
     
     // MARK: - Variables
-    var course: Course!
+    var classRealm: Class!
     let realm = try! Realm()
     var colorPicker: ChromaColorPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Nav bar
-        navigationController?.navigationBar.prefersLargeTitles = false
-        
         // Title
-        self.title = course.name
+        self.title = classRealm.course?.name
         
         // Button design
         btSaveChanges.layer.cornerRadius = 8.0
@@ -42,10 +39,10 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
         tfRoom.delegate = self
         
         // Get data
-        tfName.text = course.name
-        tfGroup.text = course.group
-        tfBuilding.text = course.building
-        tfRoom.text = course.room
+        tfName.text = classRealm.course?.name
+        tfGroup.text = classRealm.group
+        tfBuilding.text = classRealm.building
+        tfRoom.text = classRealm.room
         
         // Color view
         let lengthSide = self.view.frame.width
@@ -55,23 +52,35 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
         colorPicker.hexLabel.isHidden = true
         colorPicker.stroke = 3
         
-        let red = CGFloat(course.red)
-        let green = CGFloat(course.green)
-        let blue = CGFloat(course.blue)
-        let alpha = CGFloat(course.alpha)
+        let red = CGFloat(classRealm.red)
+        let green = CGFloat(classRealm.green)
+        let blue = CGFloat(classRealm.blue)
+        let alpha = CGFloat(classRealm.alpha)
 
         colorPicker.adjustToColor(UIColor(red: red, green: green, blue: blue, alpha: alpha))
         
         vColor.addSubview(colorPicker)
         
         // Delete button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteCourse))
-
+        if classRealm.beaconUUID == "" {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteClass))
+            
+            tfName.isEnabled = true
+            tfGroup.isEnabled = true
+            tfBuilding.isEnabled = true
+            tfRoom.isEnabled = true
+            
+            tfName.alpha = 1
+            tfGroup.alpha = 1
+            tfBuilding.alpha = 1
+            tfRoom.alpha = 1
+            
+            btSaveChanges.setTitle("Save Changes", for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func quitarTeclado() {
@@ -100,14 +109,14 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
             
             // Update in realm
             try! realm.write {
-                course.name = tfName.text!
-                course.group = tfGroup.text!
-                course.building = tfBuilding.text!
-                course.room = tfRoom.text!
-                course.red = Float(fRed)
-                course.green = Float(fGreen)
-                course.blue = Float(fBlue)
-                course.alpha = Float(fAlpha)
+                classRealm.course?.name = tfName.text!
+                classRealm.group = tfGroup.text!
+                classRealm.building = tfBuilding.text!
+                classRealm.room = tfRoom.text!
+                classRealm.red = Float(fRed)
+                classRealm.green = Float(fGreen)
+                classRealm.blue = Float(fBlue)
+                classRealm.alpha = Float(fAlpha)
             }
             navigationController?.popToRootViewController(animated: true)
         }
@@ -119,11 +128,12 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
         }
     }
     
-    @objc func deleteCourse(_ sender: UIButton) {
+    @objc func deleteClass(_ sender: UIButton) {
         let alert = UIAlertController(title: "Delete Course", message: "Are you sure you want to delete this course?", preferredStyle: .alert)
         let clearAction = UIAlertAction(title: "Delete", style: .destructive) { (alert: UIAlertAction!) -> Void in
             try! self.realm.write {
-                self.realm.delete(self.course)
+                self.realm.delete(self.classRealm.course!)
+                self.realm.delete(self.classRealm)
             }
             self.navigationController?.popToRootViewController(animated: true)
         }
@@ -135,16 +145,4 @@ class ViewControllerCoursesView: UIViewController, UITextFieldDelegate, ChromaCo
         
         present(alert, animated: true, completion:nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

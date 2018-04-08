@@ -10,36 +10,21 @@ import Foundation
 import RealmSwift
 
 class Course: Object {
+    @objc dynamic var id = ""
     @objc dynamic var name = ""
-    @objc dynamic var group = ""
-    @objc dynamic var building = ""
-    @objc dynamic var room = ""
-    @objc dynamic var red: Float = 0.0
-    @objc dynamic var blue: Float = 0.0
-    @objc dynamic var green: Float = 0.0
-    @objc dynamic var alpha: Float = 0.0
+    @objc dynamic var department = ""
     
-    convenience init(name: String, group: String, building: String, room: String) {
+    convenience init(id: String, name: String, department: String) {
         self.init()
+        self.id = id
         self.name = name
-        self.group = group
-        self.building = building
-        self.room = room
-        self.red = 0.2039215686
-        self.green = 0.2274509804
-        self.blue = 0.2509803922
-        self.alpha = 1
+        self.department = department
     }
     
-    convenience init(name: String, group: String, building: String, room: String, red: Float, green: Float, blue: Float, alpha: Float) {
+    convenience init(name: String) {
         self.init()
+        self.id = ""
         self.name = name
-        self.group = group
-        self.building = building
-        self.room = room
-        self.red = red
-        self.green = green
-        self.blue = blue
-        self.alpha = alpha
+        self.department = "No department"
     }
 }
