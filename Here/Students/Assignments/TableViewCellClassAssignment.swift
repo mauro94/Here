@@ -12,8 +12,8 @@ import RealmSwift
 class TableViewCellClassAssignment: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: - Outlets
     @IBOutlet weak var lbClassName: UILabel!
-    @IBOutlet weak var pvClass: UIPickerView!
     @IBOutlet weak var vClasscolor: UIView!
+    @IBOutlet weak var pvClass: UIPickerView!
     
     // MARK: - Variables
     let realm = try! Realm()
@@ -34,9 +34,7 @@ class TableViewCellClassAssignment: UITableViewCell, UIPickerViewDelegate, UIPic
         super.setSelected(selected, animated: animated)
     }
     
-    func pickerView(_ pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         // Circle color
         let circle = UIBezierPath(arcCenter: CGPoint(x: 15,y: 15), radius: CGFloat(8), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
         
@@ -54,6 +52,10 @@ class TableViewCellClassAssignment: UITableViewCell, UIPickerViewDelegate, UIPic
         lbClassName.text = classesArray[row].course?.name
         
         return classesArray[row].course?.name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        lbClassName.text = classesArray[row].course?.name
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -60,7 +60,9 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self){
             if CLLocationManager.isRangingAvailable() {
                 for i in 0 ..< classes.count {
-                    startMonitoringProject(i: i)
+                    if classes[i].beaconUUID != "" {
+                        startMonitoringProject(i: i)
+                    }
                 }
             }
         }

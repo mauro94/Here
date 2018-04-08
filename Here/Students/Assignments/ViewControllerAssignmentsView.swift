@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate   {
     
@@ -172,6 +173,14 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
             try! self.realm.write {
                 self.realm.delete(self.assignment)
             }
+            
+            // Notification
+            let center = UNUserNotificationCenter.current()
+            
+            let id1 = (self.assignment.classCourse?.course?.name)! + "-" + self.assignment.title + "-OneDay"
+            let id2 = (self.assignment.classCourse?.course?.name)! + "-" + self.assignment.title + "-TwoHours"
+            
+            center.removePendingNotificationRequests(withIdentifiers: [id1, id2])
             
             self.navigationController?.popToRootViewController(animated: true)
         }

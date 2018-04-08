@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     // MARK: - Outlets
@@ -129,6 +130,44 @@ class ViewControllerAssignmentsNew: UIViewController, UITextViewDelegate, UITabl
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let watchConnectionHelper = appDelegate.watchConnectionHelper
             watchConnectionHelper.sendData(message:"new", assignment: assignment)
+            
+            // Notification
+            let center = UNUserNotificationCenter.current()
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Pending Assignment"
+            content.body = "Buy some milk"
+            content.sound = UNNotificationSound.default()
+            
+            var one = DateComponents()
+            one.day = -1
+            
+            var two = DateComponents()
+            two.hour = -2
+            
+            let dateOne = Calendar.current.date(byAdding: one, to: Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: date)!)!
+            let triggerDateOne = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateOne)
+            let triggerOne = UNCalendarNotificationTrigger(dateMatching: triggerDateOne, repeats: false)
+            
+            let dateTwo = Calendar.current.date(byAdding: two, to: date)!
+            let triggerDateTwo = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: dateTwo)
+            let triggerTwo = UNCalendarNotificationTrigger(dateMatching: triggerDateTwo, repeats: false)
+            
+            let identifierOne = (assignment.classCourse?.course?.name)! + "-" + assignment.title + "-OneDay"
+            let requestOne = UNNotificationRequest(identifier: identifierOne, content: content, trigger: triggerOne)
+            center.add(requestOne, withCompletionHandler: { (error) in
+                if let error = error {
+                    print(error)
+                }
+            })
+            
+            let identifierTwo = (assignment.classCourse?.course?.name)! + "-" + assignment.title + "-TwoHours"
+            let requestTwo = UNNotificationRequest(identifier: identifierTwo, content: content, trigger: triggerTwo)
+            center.add(requestTwo, withCompletionHandler: { (error) in
+                if let error = error {
+                    print(error)
+                }
+            })
             
             self.dismiss(animated: true, completion: nil)
         }

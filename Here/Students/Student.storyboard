@@ -47,6 +47,34 @@
             </objects>
             <point key="canvasLocation" x="441" y="-1019"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Qaw-3x-4Ma">
+            <objects>
+                <tableViewController id="EBx-jd-STB" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aAb-0N-1dN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BYq-KS-J7c">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BYq-KS-J7c" id="dYk-2h-r0Q">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EBx-jd-STB" id="IGQ-GH-cty"/>
+                            <outlet property="delegate" destination="EBx-jd-STB" id="BYe-3S-qdK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6qV-SL-WxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1969" y="-107"/>
+        </scene>
         <!--Assignments-->
         <scene sceneID="faK-2R-QGE">
             <objects>
@@ -129,6 +157,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Assignments" id="02T-g4-ash">
+                        <barButtonItem key="leftBarButtonItem" title="Completed" id="QOb-aL-tz5">
+                            <connections>
+                                <segue destination="EBx-jd-STB" kind="show" id="ADT-bu-LlO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="egl-bf-ZL7">
                             <connections>
                                 <segue destination="l3O-Qp-CYK" kind="presentation" id="GRh-fm-oLF"/>
@@ -175,7 +208,7 @@
                     <viewLayoutGuide key="safeArea" id="ALz-RM-bUt"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1389.5999999999999" y="-107.49625187406298"/>
+            <point key="canvasLocation" x="1193" y="-107"/>
         </scene>
         <!--View Controller Assignments New-->
         <scene sceneID="B31-FF-xUh">
@@ -524,7 +557,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vz7-3b-nHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7g7-yS-d7P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2168.8000000000002" y="-42.278860569715143"/>
+            <point key="canvasLocation" x="3001" y="-45"/>
         </scene>
         <!--Here-->
         <scene sceneID="sh6-pz-LwS">
@@ -1063,7 +1096,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-yj-73Y">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgd-yj-73Y">
                                 <rect key="frame" x="0.0" y="31" width="375" height="471"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1175,7 +1208,7 @@
                                 <color key="separatorColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="189" id="yUf-5e-mNh" customClass="TableViewCellCourseAssignment" customModule="Here" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="classCell" rowHeight="189" id="yUf-5e-mNh" customClass="TableViewCellClassAssignment" customModule="Here" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yUf-5e-mNh" id="B9F-Vr-Zyu">
@@ -1217,9 +1250,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lbCourseName" destination="6AJ-eZ-XQV" id="mfq-9g-3Do"/>
-                                            <outlet property="pvCourses" destination="SCn-hU-D0o" id="Afk-Lv-g5Z"/>
-                                            <outlet property="vCoursecolor" destination="DDL-b1-qFD" id="k82-pE-qep"/>
+                                            <outlet property="lbClassName" destination="6AJ-eZ-XQV" id="fay-Zx-MUV"/>
+                                            <outlet property="pvClass" destination="SCn-hU-D0o" id="nLm-8X-S5h"/>
+                                            <outlet property="vClasscolor" destination="DDL-b1-qFD" id="1pV-je-yNe"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" rowHeight="250" id="9tY-Gl-SkY" customClass="TableViewCellDate" customModule="Here" customModuleProvider="target">
@@ -1453,7 +1486,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bf8-2V-rQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CE7-UD-zUC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2846" y="-42"/>
+            <point key="canvasLocation" x="3678" y="-45"/>
         </scene>
     </scenes>
     <resources>
