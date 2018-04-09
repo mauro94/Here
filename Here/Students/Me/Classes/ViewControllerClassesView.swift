@@ -118,7 +118,7 @@ class ViewControllerClassesView: UIViewController, UITextFieldDelegate, ChromaCo
                 classRealm.blue = Float(fBlue)
                 classRealm.alpha = Float(fAlpha)
             }
-            navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
         else {
             // Alert fields are empty
@@ -135,7 +135,7 @@ class ViewControllerClassesView: UIViewController, UITextFieldDelegate, ChromaCo
                 self.realm.delete(self.classRealm.course!)
                 self.realm.delete(self.classRealm)
             }
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
         }
