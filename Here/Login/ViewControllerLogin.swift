@@ -47,18 +47,14 @@ class ViewControllerLogin: UIViewController {
     
     // MARK: - Keyboard
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height/2
-            }
+        if self.view.frame.origin.y == 0{
+            self.view.frame.origin.y -= 130
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height/2
-            }
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y += 130
         }
     }
 }

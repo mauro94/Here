@@ -48,7 +48,7 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +56,22 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "classCell", for: indexPath)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
-            
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell", for: indexPath)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "other", for: indexPath)

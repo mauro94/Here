@@ -107,14 +107,14 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
                     let hour = calendar.component(.hour, from: date)
                     let minute = calendar.component(.minute, from: date)
                     
-                    if hour == Int(c.hour) && minute == Int(c.minute) {
+//                    if hour == Int(c.hour) && minute == Int(c.minute) {
                         btHere.isEnabled = true
                         btHere.alpha = 1
-                    }
-                    else {
-                        btHere.isEnabled = false
-                        btHere.alpha = 0.5
-                    }
+//                    }
+//                    else {
+//                        btHere.isEnabled = false
+//                        btHere.alpha = 0.5
+//                    }
                 }
             }
         }

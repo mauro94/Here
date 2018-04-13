@@ -106,6 +106,46 @@
             </objects>
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
+        <!--assignment-->
+        <scene sceneID="fu3-4k-Mmr">
+            <objects>
+                <controller identifier="assignment" id="MbM-WT-Ztd" customClass="InterfaceControllerAssignemt" customModule="Here_Watch_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="Label" numberOfLines="2" id="mFv-gn-SSj">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <separator alignment="left" id="uDd-qM-6Ea"/>
+                        <group alignment="left" id="R0u-Uu-DPf">
+                            <items>
+                                <group width="10" height="10" alignment="left" verticalAlignment="center" radius="5" id="GvA-e8-UQM">
+                                    <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </group>
+                                <group width="1" alignment="left" layout="vertical" id="MYp-ZW-8Rl">
+                                    <items>
+                                        <label width="1" height="20" alignment="left" verticalAlignment="center" text="Label" id="OBs-qh-Dkl">
+                                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <label width="1" alignment="left" text="Label" numberOfLines="4" id="3XV-35-d1j"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Complete" id="Jno-fu-DvE">
+                            <connections>
+                                <action selector="completeAssignment" destination="MbM-WT-Ztd" id="6OO-bc-bEE"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="lbCourseName" destination="OBs-qh-Dkl" id="RYU-zx-RdZ"/>
+                        <outlet property="lbNote" destination="3XV-35-d1j" id="bgO-Tp-4Iw"/>
+                        <outlet property="lbTitle" destination="mFv-gn-SSj" id="WMs-tk-VsO"/>
+                        <outlet property="vColor" destination="GvA-e8-UQM" id="kWZ-zC-I9A"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="681" y="345"/>
+        </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
             <objects>

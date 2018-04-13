@@ -40,6 +40,11 @@ class InterfaceControllerAssignments: WKInterfaceController {
         token.invalidate()
     }
     
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+        let assignment = assignments[rowIndex]
+        presentController(withName: "assignment", context: assignment)
+    }
+    
     private func loadTableData() {
         tbAssignments.setNumberOfRows(assignments.count, withRowType: "TableRowControllerAssignment")
         

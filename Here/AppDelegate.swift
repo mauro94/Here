@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let realm = try! Realm()
+        
         // Color
         let darkColor = UIColor(red: 52/255, green: 58/255, blue: 64/255, alpha: 1)
         
@@ -24,8 +28,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = darkColor
         UITabBar.appearance().tintColor = UIColor.white
         
+        // Define initial storyboard
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        var storyboard: UIStoryboard
+        var initialViewController: UIViewController
+        
+        if realm.objects(Class.self).count <= 1 {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "Login")
+        }
+        else {
+            storyboard = UIStoryboard(name: "Student", bundle: nil)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "StudentLogin")
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         // Create empty course
-        let realm = try! Realm()
         let courses = realm.objects(Course.self)
         if courses.count == 0 {
             let noCourse = Course(id: "", name: "No Course", department: "")
@@ -72,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let r4 = Float(arc4random()) / Float(UINT32_MAX)
             let g4 = Float(arc4random()) / Float(UINT32_MAX)
             let b4 = Float(arc4random()) / Float(UINT32_MAX)
-            let c4 = Class(group: "102", building: "A3", room: "312", beaconUUID: "B0702880-A295-A8AB-F734-031A98A512DA", beaconMinor: "1004", beaconMajor: "4", hour: "14", minute: "30", duration: "3", startDay: "9", startMonth: "1", startYear: "2018", endDay: "3", endMonth: "5", endYear: "2018", sunday: false, monday: false, tuesday: false, wednesday: true, thursday: false, friday: false, saturday: false, red: r4, green: g4, blue: b4, alpha: 1.0, course: course[4])
+            let c4 = Class(group: "102", building: "A3", room: "312", beaconUUID: "B0702880-A295-A8AB-F734-031A98A512DA", beaconMinor: "1004", beaconMajor: "4", hour: "01", minute: "15", duration: "3", startDay: "9", startMonth: "1", startYear: "2018", endDay: "3", endMonth: "5", endYear: "2018", sunday: false, monday: false, tuesday: false, wednesday: true, thursday: false, friday: false, saturday: false, red: r4, green: g4, blue: b4, alpha: 1.0, course: course[4])
 
             try! realm.write {
                 realm.add(c0)
@@ -80,6 +100,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 realm.add(c2)
                 realm.add(c3)
                 realm.add(c4)
+            }
+            
+            // NOT ERASE
+            // Class notifications
+            let notificationClasses = realm.objects(Class.self)
+            for c in notificationClasses {
+                if c.sunday {
+                    setClassNotification(c: c, w: 1)
+                }
+                if c.monday {
+                    setClassNotification(c: c, w: 2)
+                }
+                if c.tuesday {
+                    setClassNotification(c: c, w: 3)
+                }
+                if c.wednesday {
+                    setClassNotification(c: c, w: 4)
+                }
+                if c.thursday {
+                    setClassNotification(c: c, w: 5)
+                }
+                if c.friday {
+                    setClassNotification(c: c, w: 6)
+                }
+                if c.saturday {
+                    setClassNotification(c: c, w: 7)
+                }
             }
         }
         

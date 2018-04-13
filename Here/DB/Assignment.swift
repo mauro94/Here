@@ -14,6 +14,8 @@ class Assignment: Object {
     @objc dynamic var note = ""
     @objc dynamic var priority = ""
     @objc dynamic var date: Date? = nil
+    @objc dynamic var completeDate: Date? = nil
+    @objc dynamic var complete = false
     @objc dynamic var classCourse: Class?
     
     convenience init(title: String, note: String, priority: String, date: Date, classCourse: Class) {
@@ -23,5 +25,7 @@ class Assignment: Object {
         self.priority = priority
         self.date = date
         self.classCourse = classCourse
+        self.completeDate = nil
+        self.complete = false
     }
 }

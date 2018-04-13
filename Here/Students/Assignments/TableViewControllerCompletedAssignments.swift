@@ -1,18 +1,17 @@
 //
-//  TableViewControllerAssignments.swift
+//  TableViewControllerCompletedAssignments.swift
 //  Here
 //
-//  Created by Mauro Amarante Esparza on 2/15/18.
+//  Created by Mauro Amarante Esparza on 4/10/18.
 //  Copyright © 2018 Mauro Amarante Esparza. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-class TableViewControllerAssignments: UITableViewController {
+class TableViewControllerCompletedAssignments: UITableViewController {
     // MARK: - Outlets
     @IBOutlet var vNoAssignments: UIView!
-    @IBOutlet weak var btNewAssignment: UIButton!
     
     // MARK: - Variables
     let realm = try! Realm()
@@ -20,18 +19,15 @@ class TableViewControllerAssignments: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Get data
-        assignments = realm.objects(Assignment.self).filter("complete = false")
+        assignments = realm.objects(Assignment.self).filter("complete = true")
         assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
         
-        // Button style
-        btNewAssignment.layer.cornerRadius = 8.0
-    
         // Remove navbar shadow
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,7 +35,7 @@ class TableViewControllerAssignments: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // Get data
-        assignments = realm.objects(Assignment.self).filter("complete = false")
+        assignments = realm.objects(Assignment.self).filter("complete = true")
         assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
         
         tableView.reloadData()
@@ -67,11 +63,10 @@ class TableViewControllerAssignments: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return assignments.count
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath) as! TableViewCellAssignment
@@ -93,7 +88,7 @@ class TableViewControllerAssignments: UITableViewController {
         shapeLayer.fillColor = UIColor(red: red, green: green, blue: blue, alpha: alpha).cgColor
         
         cell.lbTitle.text = assignments[indexPath.row].title
-        cell.lbDate.text = formatter.string(from: assignments[indexPath.row].date!)
+        cell.lbDate.text = "Completed: " + formatter.string(from: assignments[indexPath.row].completeDate!)
         cell.lbCourse.text = assignments[indexPath.row].classCourse?.course?.name
         cell.vColor.layer.addSublayer(shapeLayer)
         
@@ -113,14 +108,14 @@ class TableViewControllerAssignments: UITableViewController {
         
         return cell
     }
-
-    // MARK: - Navigation
+    
+    // MARK: - Navigation    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "viewAssignment") {
             let view = segue.destination as! ViewControllerAssignmentsView
             let indexPath = tableView.indexPathForSelectedRow!
             view.assignment = assignments[indexPath.row]
-            view.disableSave = true
+            view.disableSave = false
         }
     }
 }

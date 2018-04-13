@@ -24,6 +24,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
     var classes: Results<Class>!
     var classesArray = [Class]()
     var cellExpanded = [Bool]()
+    var disableSave: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,8 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         cellClass.setClass(classIndex: classIndex!)
         cellDate.setDate(date: assignment.date!)
         cellPriority.setPriority(priority: assignment.priority)
+        
+        btSaveChanges.isEnabled = disableSave
     }
 
     override func didReceiveMemoryWarning() {
@@ -200,6 +203,8 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
                     print(error)
                 }
             })
+            
+            self.navigationController?.popViewController(animated: true)
         }
         else {
             // Alert fields are empty
@@ -230,7 +235,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
             
             center.removePendingNotificationRequests(withIdentifiers: [id1, id2])
             
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (alert: UIAlertAction!) -> Void in
         }

@@ -9,10 +9,10 @@
 import UIKit
 
 class CheckBox: UIButton {
-    // Images
+    // MARK: - Variables
     let checkedImage = UIImage(named: "fullCheckbox")! as UIImage
-    let uncheckedImage = UIImage(named: "emptyCheckbox")! as UIImage
-    
+    let uncheckedImage = UIImage()
+
     // Bool property
     var isChecked: Bool = false {
         didSet{
@@ -33,5 +33,9 @@ class CheckBox: UIButton {
         if sender == self {
             isChecked = !isChecked
         }
+    }
+    
+    func update(update: Bool) {
+        self.isChecked = update
     }
 }

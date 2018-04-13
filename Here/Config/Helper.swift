@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 struct User: Codable {
     var id: String
@@ -58,5 +59,24 @@ func alertOk(title: String, message: String, vc: UIViewController) -> Void {
     let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
     vc.present(alert, animated: true, completion: nil)
+}
+
+func setClassNotification(c: Class, w: Int) {
+    let center = UNUserNotificationCenter.current()
+    
+    let content = UNMutableNotificationContent()
+    content.title = "Your class just started!"
+    content.body = "Remember to register your assitance"
+    content.sound = UNNotificationSound.default()
+    
+    let components = DateComponents(hour: Int(c.hour), minute: Int(c.minute), weekday: w)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+    let identifier = c.beaconUUID + "-" + c.beaconMajor + "-" + c.beaconMinor
+    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+    center.add(request, withCompletionHandler: { (error) in
+        if let error = error {
+            print(error)
+        }
+    })
 }
 
