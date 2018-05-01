@@ -25,7 +25,7 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
         student = realm.objects(Student.self)
 
         // Set data
-        self.title = student[0].name
+        self.navigationItem.title = student[0].name
         lbStudentid.text = student[0].id
         
         // Tableview

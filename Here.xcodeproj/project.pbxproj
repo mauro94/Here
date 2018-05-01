@@ -22,7 +22,6 @@
 		3419A1B8207327AD0035804E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3419A1B7207327AD0035804E /* Assets.xcassets */; };
 		3419A1BD207327AD0035804E /* Here Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3419A19E207327AD0035804E /* Here Watch.app */; };
 		3419A1C920736C230035804E /* ViewControllerHere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419A1C820736C230035804E /* ViewControllerHere.swift */; };
-		3431FE48207EB90C00F8AD8C /* PageViewControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431FE47207EB90B00F8AD8C /* PageViewControllerAssignments.swift */; };
 		3431FE4B207EC8D100F8AD8C /* ViewControllerToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431FE4A207EC8D100F8AD8C /* ViewControllerToday.swift */; };
 		34363D1B2035F7BE00BF2656 /* Student.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34363D1A2035F7BE00BF2656 /* Student.storyboard */; };
 		34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */; };
@@ -50,6 +49,8 @@
 		348402CA2077050500EEA5C4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C1207704E300EEA5C4 /* RealmSwift.framework */; };
 		348402CB2077050500EEA5C4 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 348402C1207704E300EEA5C4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		348402CF20770CDD00EEA5C4 /* AssignmentEnhanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348402CE20770CDD00EEA5C4 /* AssignmentEnhanced.swift */; };
+		3485AE6E2089EBDC004D6DD1 /* PageViewControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485AE6D2089EBDB004D6DD1 /* PageViewControllerAssignments.swift */; };
+		3485AE742089F7FF004D6DD1 /* TableViewCellTodayClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3485AE732089F7FF004D6DD1 /* TableViewCellTodayClass.swift */; };
 		34A17B42207FA30E00085B14 /* ViewControllerAssignmentsDue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A17B41207FA30E00085B14 /* ViewControllerAssignmentsDue.swift */; };
 		34A17B44207FA78F00085B14 /* TableViewCellAssignmentDue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A17B43207FA78F00085B14 /* TableViewCellAssignmentDue.swift */; };
 		34A624CA2075D5EB00C68053 /* InterfaceControllerAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A624C92075D5EB00C68053 /* InterfaceControllerAssignments.swift */; };
@@ -59,6 +60,8 @@
 		34B2C370206B050D004BA8C1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B2C36F206B050D004BA8C1 /* Helper.swift */; };
 		34B4FEB52074A0C700C72D90 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; };
 		34B4FEB62074A0C700C72D90 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34B4FEB42074A0C700C72D90 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34C3F626208A947500827E5A /* TableViewControllerTodayClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C3F625208A947500827E5A /* TableViewControllerTodayClasses.swift */; };
+		34C3F628208A9DD300827E5A /* TableViewControllerTodayAssignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C3F627208A9DD300827E5A /* TableViewControllerTodayAssignments.swift */; };
 		34C607A72078432800AE9568 /* TableViewCellAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A62078432800AE9568 /* TableViewCellAssignment.swift */; };
 		34C607A92078442400AE9568 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607A82078442400AE9568 /* Checkbox.swift */; };
 		34C607AB207880C500AE9568 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C607AA207880C500AE9568 /* Class.swift */; };
@@ -158,7 +161,6 @@
 		3419A1B9207327AD0035804E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3419A1BA207327AD0035804E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		3419A1C820736C230035804E /* ViewControllerHere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHere.swift; sourceTree = "<group>"; };
-		3431FE47207EB90B00F8AD8C /* PageViewControllerAssignments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerAssignments.swift; sourceTree = "<group>"; };
 		3431FE4A207EC8D100F8AD8C /* ViewControllerToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerToday.swift; sourceTree = "<group>"; };
 		34363D1A2035F7BE00BF2656 /* Student.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Student.storyboard; sourceTree = "<group>"; };
 		34363D1D2035F98200BF2656 /* TableViewControllerAssignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerAssignments.swift; sourceTree = "<group>"; };
@@ -177,6 +179,8 @@
 		348402C0207704E300EEA5C4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Here Watch Extension/Realm.framework"; sourceTree = SOURCE_ROOT; };
 		348402C1207704E300EEA5C4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Here Watch Extension/RealmSwift.framework"; sourceTree = SOURCE_ROOT; };
 		348402CE20770CDD00EEA5C4 /* AssignmentEnhanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnhanced.swift; sourceTree = "<group>"; };
+		3485AE6D2089EBDB004D6DD1 /* PageViewControllerAssignments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewControllerAssignments.swift; sourceTree = "<group>"; };
+		3485AE732089F7FF004D6DD1 /* TableViewCellTodayClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellTodayClass.swift; sourceTree = "<group>"; };
 		34A17B41207FA30E00085B14 /* ViewControllerAssignmentsDue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAssignmentsDue.swift; sourceTree = "<group>"; };
 		34A17B43207FA78F00085B14 /* TableViewCellAssignmentDue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAssignmentDue.swift; sourceTree = "<group>"; };
 		34A29AB8203FD16300700503 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromaShadeSlider.swift; sourceTree = "<group>"; };
@@ -191,6 +195,9 @@
 		34A624CF20767FF200C68053 /* WatchConnectionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectionHelper.swift; sourceTree = "<group>"; };
 		34B2C36F206B050D004BA8C1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		34B4FEB42074A0C700C72D90 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		34C3F624208A929200827E5A /* Here-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Here-Bridging-Header.h"; sourceTree = "<group>"; };
+		34C3F625208A947500827E5A /* TableViewControllerTodayClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTodayClasses.swift; sourceTree = "<group>"; };
+		34C3F627208A9DD300827E5A /* TableViewControllerTodayAssignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTodayAssignments.swift; sourceTree = "<group>"; };
 		34C607A62078432800AE9568 /* TableViewCellAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAssignment.swift; sourceTree = "<group>"; };
 		34C607A82078442400AE9568 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Checkbox.swift; path = Here/Config/Checkbox.swift; sourceTree = SOURCE_ROOT; };
 		34C607AA207880C500AE9568 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
@@ -319,9 +326,12 @@
 			isa = PBXGroup;
 			children = (
 				3431FE4A207EC8D100F8AD8C /* ViewControllerToday.swift */,
-				3431FE47207EB90B00F8AD8C /* PageViewControllerAssignments.swift */,
 				34A17B41207FA30E00085B14 /* ViewControllerAssignmentsDue.swift */,
+				3485AE6D2089EBDB004D6DD1 /* PageViewControllerAssignments.swift */,
 				34A17B43207FA78F00085B14 /* TableViewCellAssignmentDue.swift */,
+				3485AE732089F7FF004D6DD1 /* TableViewCellTodayClass.swift */,
+				34C3F625208A947500827E5A /* TableViewControllerTodayClasses.swift */,
+				34C3F627208A9DD300827E5A /* TableViewControllerTodayAssignments.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -334,6 +344,7 @@
 				3431FE49207EB91300F8AD8C /* Today */,
 				34827B2E2043879900449A00 /* Assignments */,
 				34C607BA20797CE400AE9568 /* Me */,
+				34C3F624208A929200827E5A /* Here-Bridging-Header.h */,
 			);
 			path = Students;
 			sourceTree = "<group>";
@@ -477,6 +488,7 @@
 				TargetAttributes = {
 					341693AF2007D35400C61B76 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 					};
 					3419A19D207327AD0035804E = {
@@ -562,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3485AE742089F7FF004D6DD1 /* TableViewCellTodayClass.swift in Sources */,
 				34C607AF20789F3600AE9568 /* ViewControllerHereNotifications.swift in Sources */,
 				345E1C3D2047B7D500811395 /* TableViewCellClassAssignment.swift in Sources */,
 				34363D282035FA5500BF2656 /* ViewControllerClassesView.swift in Sources */,
@@ -573,7 +586,7 @@
 				34363D312035FCBE00BF2656 /* Course.swift in Sources */,
 				34C607B7207949EF00AE9568 /* Student.swift in Sources */,
 				34A17B44207FA78F00085B14 /* TableViewCellAssignmentDue.swift in Sources */,
-				3431FE48207EB90C00F8AD8C /* PageViewControllerAssignments.swift in Sources */,
+				34C3F626208A947500827E5A /* TableViewControllerTodayClasses.swift in Sources */,
 				34827B2A203FD61B00449A00 /* ColorModeToggleButton.swift in Sources */,
 				34C607AB207880C500AE9568 /* Class.swift in Sources */,
 				34C607A92078442400AE9568 /* Checkbox.swift in Sources */,
@@ -597,7 +610,9 @@
 				34827B29203FD61B00449A00 /* ChromaColorPicker.swift in Sources */,
 				34363D1E2035F98200BF2656 /* TableViewControllerAssignments.swift in Sources */,
 				34827B2C203FD61B00449A00 /* ChromaAddButton.swift in Sources */,
+				3485AE6E2089EBDC004D6DD1 /* PageViewControllerAssignments.swift in Sources */,
 				34A624CE2076742800C68053 /* WatchConnectionHelper.swift in Sources */,
+				34C3F628208A9DD300827E5A /* TableViewControllerTodayAssignments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +790,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CPUPH3A362;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -785,6 +801,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAE.Here;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Here/Students/Here-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -794,6 +812,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CPUPH3A362;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -804,6 +823,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MAE.Here;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Here/Students/Here-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

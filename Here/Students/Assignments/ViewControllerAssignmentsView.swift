@@ -66,7 +66,7 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
         
         let classIndex = classes.index(of: assignment.classCourse!)
         cellClass.setClass(classIndex: classIndex!)
-        cellDate.setDate(date: assignment.date!)
+        cellDate.setDate(d: assignment.date!)
         cellPriority.setPriority(priority: assignment.priority)
         
         btSaveChanges.isEnabled = disableSave

@@ -57,19 +57,23 @@ class TableViewCellDate: UITableViewCell {
             case btTomorrow:
                 let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)
                 dpDate.date = tomorrow!
+                date = tomorrow!
                 lbSelectedDate.text = formatter.string(from: tomorrow!)
             case btDays:
                 let days = Calendar.current.date(byAdding: .day, value: 3, to: today)
                 dpDate.date = days!
+                date = days!
                 lbSelectedDate.text = formatter.string(from: days!)
             default:
                 let week = Calendar.current.date(byAdding: .day, value: 7, to: today)
                 dpDate.date = week!
+                date = week!
                 lbSelectedDate.text = formatter.string(from: week!)
         }
     }
     
-    func setDate(date: Date) {
-        dpDate.date = date
+    func setDate(d: Date) {
+        dpDate.date = d
+        date = d
     }
 }

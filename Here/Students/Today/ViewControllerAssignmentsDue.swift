@@ -9,69 +9,65 @@
 import UIKit
 import RealmSwift
 
-class ViewControllerAssignmentsDue: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    // MARK: - Outlets
-    @IBOutlet weak var tbAssignments: UITableView!
-    
-    // MARK: - Variables
-    let realm = try! Realm()
-    var assignments: Results<Assignment>!
+class ViewControllerAssignmentsDue: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Get data
-        let todayStart = Calendar.current.startOfDay(for: Date())
-        let todayEnd: Date = {
-            let components = DateComponents(day: 1, second: -1)
-            return Calendar.current.date(byAdding: components, to: todayStart)!
-        }()
-        assignments = realm.objects(Assignment.self).filter("date BETWEEN %@", [todayStart, todayEnd])
-        assignments = assignments!.sorted(byKeyPath: "date", ascending: true)
-
-        // Tableview
-        tbAssignments.delegate = self
-        tbAssignments.dataSource = self
-        tbAssignments.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - Table View
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return assignments.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellAssignmentDue
-        cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.lbTitle.text = assignments[indexPath.row].title
-        cell.lbCourse.text = assignments[indexPath.row].classCourse?.course?.name
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let realm = try! Realm()
+        let view = segue.destination as! TableViewControllerTodayAssignments
+        var assignments = realm.objects(Assignment.self)
         
-        let red = CGFloat((assignments[indexPath.row].classCourse?.red)!)
-        let green = CGFloat((assignments[indexPath.row].classCourse?.green)!)
-        let blue = CGFloat((assignments[indexPath.row].classCourse?.blue)!)
-        let alpha = CGFloat((assignments[indexPath.row].classCourse?.alpha)!)
+        if segue.identifier == "today" {
+            let start = Calendar.current.startOfDay(for: Date())
+            let end: Date = {
+                let components = DateComponents(day: 0, second: -1)
+                return Calendar.current.date(byAdding: components, to: start)!
+            }()
+            assignments = assignments.filter("date BETWEEN %@", [start, end])
+            assignments = assignments.sorted(byKeyPath: "date", ascending: true)
+            
+            view.data = assignments
+            view.dataType = 1
+        }
         
-        let circle = UIBezierPath(arcCenter: CGPoint(x: 10,y: 10), radius: CGFloat(5), startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+        else if segue.identifier == "tomorrow" {
+            let start: Date = {
+                let components = DateComponents(day: 1, second: -1)
+                return Calendar.current.date(byAdding: components, to: Calendar.current.startOfDay(for: Date()))!
+            }()
+            let end: Date = {
+                let components = DateComponents(day: 1, second: -1)
+                return Calendar.current.date(byAdding: components, to: start)!
+            }()
+            assignments = assignments.filter("date BETWEEN %@", [start, end])
+            assignments = assignments.sorted(byKeyPath: "date", ascending: true)
+            
+            view.data = assignments
+            view.dataType = 2
+        }
         
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circle.cgPath
-        
-        shapeLayer.fillColor = UIColor(red: red, green: green, blue: blue, alpha: alpha).cgColor
-        
-        cell.vColor.layer.addSublayer(shapeLayer)
-        
-        return cell
+        else {
+            let start: Date = {
+                let components = DateComponents(day: 2, second: -1)
+                return Calendar.current.date(byAdding: components, to: Calendar.current.startOfDay(for: Date()))!
+            }()
+            let end: Date = {
+                let components = DateComponents(day: 1, second: -1)
+                return Calendar.current.date(byAdding: components, to: start)!
+            }()
+            assignments = assignments.filter("date BETWEEN %@", [start, end])
+            assignments = assignments.sorted(byKeyPath: "date", ascending: true)
+            
+            view.data = assignments
+            view.dataType = 3
+        }
     }
 }
