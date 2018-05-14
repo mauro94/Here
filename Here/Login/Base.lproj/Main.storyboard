@@ -42,7 +42,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p90-lt-b0K">
-                                <rect key="frame" x="0.0" y="84" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqO-BF-dQP">
-                                <rect key="frame" x="30" y="435" width="315" height="40"/>
+                                <rect key="frame" x="20" y="435" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.20392156862745098" green="0.22745098039215686" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="587-Nb-Gke"/>
@@ -91,7 +91,7 @@
                             <constraint firstItem="9vJ-aw-6f1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3IO-kD-HCA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sAt-oS-vex" secondAttribute="trailing" constant="20" id="741-bX-96i"/>
                             <constraint firstItem="19v-HQ-3jG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7i8-tU-D6t"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nqO-BF-dQP" secondAttribute="trailing" constant="30" id="Efe-by-v7M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nqO-BF-dQP" secondAttribute="trailing" constant="20" id="Efe-by-v7M"/>
                             <constraint firstItem="sAt-oS-vex" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HqY-DS-UAG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p90-lt-b0K" secondAttribute="trailing" id="OyB-ry-R0j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JRT-nB-k38" secondAttribute="trailing" constant="20" id="Rzp-eC-2ZM"/>
@@ -101,8 +101,8 @@
                             <constraint firstItem="p90-lt-b0K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eaO-Sf-L3s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9vJ-aw-6f1" secondAttribute="trailing" constant="20" id="j3A-hC-jGE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JRT-nB-k38" secondAttribute="bottom" constant="20" id="pBw-OU-hT7"/>
-                            <constraint firstItem="p90-lt-b0K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="qHm-0t-KXh"/>
-                            <constraint firstItem="nqO-BF-dQP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="tGF-Ti-GCe"/>
+                            <constraint firstItem="p90-lt-b0K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qHm-0t-KXh"/>
+                            <constraint firstItem="nqO-BF-dQP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tGF-Ti-GCe"/>
                             <constraint firstItem="19v-HQ-3jG" firstAttribute="height" secondItem="9vJ-aw-6f1" secondAttribute="height" id="wED-ze-rut"/>
                             <constraint firstItem="sAt-oS-vex" firstAttribute="top" secondItem="19v-HQ-3jG" secondAttribute="bottom" constant="4" id="yHf-4U-lLk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="19v-HQ-3jG" secondAttribute="trailing" constant="20" id="zML-Ee-04I"/>
@@ -168,7 +168,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="oOG-Ah-HN6"/>
                                 </constraints>
-                                <string key="text">- Register your assitance easily
+                                <string key="text">- Register your attendance easily
 - Recieve reminders for your pending assignments
 - Recieve pertinent information on time</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -254,7 +254,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> to register your assitance 
+                                        <string key="content"> to register your attendance 
 - Recieve reminders for your pending assignments
 - Recieve pertinent information on time</string>
                                         <attributes>
@@ -426,14 +426,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hi5-4M-Igj">
-                                <rect key="frame" x="20" y="144" width="335" height="463"/>
+                                <rect key="frame" x="20" y="174" width="335" height="372"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <string key="text">App that allows students at Tec de Monterrey university register their attendance to class. The app only allows one device per Student ID. Attendance to class can only be registered when student is in class (Location services required).</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfO-a3-PAT">
-                                <rect key="frame" x="30" y="607" width="315" height="40"/>
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Sy-QJ-pB2"/>
@@ -446,8 +446,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4D-Mr-2u2">
-                                <rect key="frame" x="0.0" y="40" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by: Mauro Amarante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEk-Mc-erB">
+                                <rect key="frame" x="20" y="566" width="335" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -455,15 +461,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hi5-4M-Igj" firstAttribute="leading" secondItem="gJy-Gh-QUp" secondAttribute="leading" constant="20" id="5Cg-Eo-evA"/>
-                            <constraint firstItem="vfO-a3-PAT" firstAttribute="leading" secondItem="gJy-Gh-QUp" secondAttribute="leading" constant="30" id="CsR-i1-AUW"/>
-                            <constraint firstItem="V4D-Mr-2u2" firstAttribute="top" secondItem="gJy-Gh-QUp" secondAttribute="top" constant="20" id="EGd-lc-V5Z"/>
+                            <constraint firstItem="vfO-a3-PAT" firstAttribute="leading" secondItem="gJy-Gh-QUp" secondAttribute="leading" constant="20" id="CsR-i1-AUW"/>
+                            <constraint firstItem="V4D-Mr-2u2" firstAttribute="top" secondItem="gJy-Gh-QUp" secondAttribute="top" constant="50" id="EGd-lc-V5Z"/>
                             <constraint firstItem="gJy-Gh-QUp" firstAttribute="trailing" secondItem="hi5-4M-Igj" secondAttribute="trailing" constant="20" id="MKT-qa-mxZ"/>
                             <constraint firstItem="gJy-Gh-QUp" firstAttribute="trailing" secondItem="V4D-Mr-2u2" secondAttribute="trailing" id="Rw3-zw-Iqc"/>
-                            <constraint firstItem="vfO-a3-PAT" firstAttribute="top" secondItem="hi5-4M-Igj" secondAttribute="bottom" id="SZp-fW-XFx"/>
-                            <constraint firstItem="gJy-Gh-QUp" firstAttribute="trailing" secondItem="vfO-a3-PAT" secondAttribute="trailing" constant="30" id="Zko-1W-shL"/>
+                            <constraint firstItem="vfO-a3-PAT" firstAttribute="top" secondItem="ZEk-Mc-erB" secondAttribute="bottom" constant="20" id="YMR-wK-rfM"/>
+                            <constraint firstItem="gJy-Gh-QUp" firstAttribute="trailing" secondItem="vfO-a3-PAT" secondAttribute="trailing" constant="20" id="Zko-1W-shL"/>
                             <constraint firstItem="gJy-Gh-QUp" firstAttribute="bottom" secondItem="vfO-a3-PAT" secondAttribute="bottom" constant="20" id="hSx-lQ-arL"/>
                             <constraint firstItem="hi5-4M-Igj" firstAttribute="top" secondItem="V4D-Mr-2u2" secondAttribute="bottom" constant="50" id="hl7-Dg-ang"/>
                             <constraint firstItem="V4D-Mr-2u2" firstAttribute="leading" secondItem="gJy-Gh-QUp" secondAttribute="leading" id="lkl-ad-oxp"/>
+                            <constraint firstItem="gJy-Gh-QUp" firstAttribute="trailing" secondItem="ZEk-Mc-erB" secondAttribute="trailing" constant="20" id="ouK-im-n9k"/>
+                            <constraint firstItem="ZEk-Mc-erB" firstAttribute="leading" secondItem="gJy-Gh-QUp" secondAttribute="leading" constant="20" id="wlC-hU-Fuj"/>
+                            <constraint firstItem="ZEk-Mc-erB" firstAttribute="top" secondItem="hi5-4M-Igj" secondAttribute="bottom" constant="20" id="zYs-xc-isj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gJy-Gh-QUp"/>
                     </view>
@@ -474,7 +483,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fh-bA-7hE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RxP-Gk-RHZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="816.50246305418727"/>
+            <point key="canvasLocation" x="136.80000000000001" y="816.34182908545733"/>
         </scene>
     </scenes>
 </document>

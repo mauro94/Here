@@ -13,6 +13,8 @@ import RealmSwift
 class WatchConnectionHelper: NSObject, WCSessionDelegate {
     // MARK: - Variables
     fileprivate var watchSession: WCSession?
+    var assignmentsiPhone = [String: [String: String]]()
+    var assistanceiPhone = [String: [String: String]]()
     
     // MARK: - Constructor
     override init() {
@@ -26,8 +28,6 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     private func storeData(data: [String: Any]) {
         let tempAssignments = data as! [String: [String: String]]
         let realm = try! Realm()
-        print(tempAssignments)
-        print()
         for (message, assignment) in tempAssignments {
             switch message {
                 case "new":
@@ -37,6 +37,7 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
                         priority: assignment["priority"]!,
                         date: assignment["date"]!,
                         courseName: assignment["courseName"]!,
+                        complete: assignment["complete"]!,
                         courseColorRed: Float(assignment["courseColorRed"]!)!,
                         courseColorGreen: Float(assignment["courseColorGreen"]!)!,
                         courseColorBlue: Float(assignment["courseColorBlue"]!)!,
@@ -53,19 +54,43 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
                 default:
                     let predicate = NSPredicate(format: "title = %@", message)
                     let a = realm.objects(AssignmentEnhanced.self).filter(predicate)[0]
-                    print(a)
                     try! realm.write {
                         a.title = assignment["title"]!
                         a.note = assignment["note"]!
                         a.priority = assignment["priority"]!
                         a.date = assignment["date"]!
                         a.courseName = assignment["courseName"]!
+                        a.complete = assignment["complete"]!
                         a.courseColorRed = Float(assignment["courseColorRed"]!)!
                         a.courseColorGreen = Float(assignment["courseColorGreen"]!)!
                         a.courseColorBlue = Float(assignment["courseColorBlue"]!)!
                         a.courseColorAlpha = Float(assignment["courseColorAlpha"]!)!
                     }
             }
+        }
+    }
+    
+    func sendAssignment(message: String, assignment: AssignmentEnhanced) {
+        prepDataAssignment(message: message, assignment: assignment)
+        do {
+            try self.watchSession?.updateApplicationContext(assignmentsiPhone)
+        } catch {
+            print("Error sending data to iPhone!")
+        }
+    }
+    
+    private func prepDataAssignment(message: String, assignment: AssignmentEnhanced) {
+        assignmentsiPhone = [String: [String: String]]()
+        
+        assignmentsiPhone[message] = ["complete": "true"]
+    }
+    
+    func sendAssistance() {
+        assistanceiPhone["assistance"] = ["assistance" : "true"]
+        do {
+            try self.watchSession?.updateApplicationContext(assistanceiPhone)
+        } catch {
+            print("Error sending data to iPhone!")
         }
     }
     

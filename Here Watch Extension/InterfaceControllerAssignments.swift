@@ -27,10 +27,10 @@ class InterfaceControllerAssignments: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         token = realm.observe { notification, realm in
-            self.assignments = realm.objects(AssignmentEnhanced.self)
+            self.assignments = realm.objects(AssignmentEnhanced.self).filter("complete = 'false'")
             self.loadTableData()
         }
-        assignments = realm.objects(AssignmentEnhanced.self)
+        assignments = realm.objects(AssignmentEnhanced.self).filter("complete = 'false'")
         loadTableData()
     }
     

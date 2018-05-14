@@ -10,18 +10,6 @@ import Foundation
 import WatchConnectivity
 import RealmSwift
 
-struct AssignmentWatch {
-    var title: String
-    var note: String
-    var priority: String
-    var date: String
-    var courseName: String
-    var courseColorRed: String
-    var courseColorGreen: String
-    var courseColorBlue: String
-    var courseColorAlpha: String
-}
-
 class WatchConnectionHelper: NSObject, WCSessionDelegate {
     // MARK: - Variables
     fileprivate var watchSession: WCSession?
@@ -29,7 +17,7 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     let realm = try! Realm()
     var assignments: Results<Assignment>!
     
-    // MARK: /Users/mauro/Dropbox/ULTIMO SEMESTRE/Topico iOS/Here/Here.xcodeproj- Constructor
+    // MARK: Constructor
     override init() {
         super.init()
         
@@ -64,10 +52,34 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
             "priority": assignment.priority,
             "date": formatter.string(from: assignment.date!),
             "courseName": (assignment.classCourse?.course!.name)!,
+            "complete": "\(assignment.complete)",
             "courseColorRed": "\(assignment.classCourse!.red)",
             "courseColorGreen": "\(assignment.classCourse!.green)",
             "courseColorBlue": "\(assignment.classCourse!.blue)",
             "courseColorAlpha": "\(assignment.classCourse!.alpha)"]
+    }
+    
+    private func storeDataComplete(data: [String: Any]) {
+        let tempAssignments = data as! [String: [String: String]]
+        let realm = try! Realm()
+        for (message, assignment) in tempAssignments {
+            let predicate = NSPredicate(format: "title = %@", message)
+            let a = realm.objects(Assignment.self).filter(predicate)[0]
+            try! realm.write {
+                if assignment["complete"] == "true" {
+                    a.complete = true
+                    a.completeDate = Date()
+                }
+                else {
+                    a.complete = false
+                    a.completeDate = nil
+                }
+            }
+        }
+    }
+    
+    private func registerAssistance() {
+        
     }
     
     // MARK: - Watch Session
@@ -81,5 +93,18 @@ class WatchConnectionHelper: NSObject, WCSessionDelegate {
     
     public func sessionDidDeactivate(_ session: WCSession) {
         print("session did deactivate")
+    }
+    
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String: Any]) {
+        print("iphone received app context")
+        
+        let temp = applicationContext as! [String: [String: String]]
+        
+        if temp["assistance"]?["assistance"] == "true" {
+            
+        }
+        else {
+            storeDataComplete(data: applicationContext)
+        }
     }
 }

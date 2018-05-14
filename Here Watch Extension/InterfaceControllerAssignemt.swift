@@ -30,7 +30,12 @@ class InterfaceControllerAssignemt: WKInterfaceController {
         
         lbTitle.setText(assignment.title)
         lbCourseName.setText(assignment.courseName)
-        lbNote.setText(assignment.note)
+        if assignment.note == "description" {
+            lbNote.setText(assignment.note)
+        }
+        else {
+            lbNote.setText("")
+        }
     }
     
     override func willActivate() {
@@ -45,6 +50,16 @@ class InterfaceControllerAssignemt: WKInterfaceController {
     }
     
     @IBAction func completeAssignment() {
+        // Watch
+        let extensionDelegate = WKExtension.shared().delegate as! ExtensionDelegate
+        let watchConnectionHelper = extensionDelegate.watchConnectionHelper
+        watchConnectionHelper.sendAssignment(message:assignment.title, assignment: assignment)
+        
+        let a = realm.objects(AssignmentEnhanced.self).filter("title = %@", assignment.title)[0]
+        try! realm.write {
+            a.complete = "true"
+        }
+        
         self.dismiss()
     }
 }

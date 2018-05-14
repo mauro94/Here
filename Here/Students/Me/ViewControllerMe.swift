@@ -13,6 +13,9 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
     // MARK: - Outlets
     @IBOutlet weak var lbStudentid: UILabel!
     @IBOutlet weak var tbOptions: UITableView!
+    @IBOutlet weak var lbDevice: UILabel!
+    @IBOutlet weak var lbDeviceId: UILabel!
+    @IBOutlet weak var btChangeDevice: UIButton!
     
     // MARK: - Variables
     let realm = try! Realm()
@@ -33,6 +36,13 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
         tbOptions.dataSource = self
         tbOptions.tableFooterView = UIView()
         
+        // Labels
+        lbDevice.text = UIDevice.current.name
+        lbDeviceId.text = student[0].device
+        
+        // Button design
+        btChangeDevice.layer.cornerRadius = 8.0
+        
         // Remove navbar shadow
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
@@ -48,7 +58,7 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,10 +76,6 @@ class ViewControllerMe: UIViewController,UITableViewDelegate, UITableViewDataSou
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            return cell
-        case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "faqCell", for: indexPath)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell

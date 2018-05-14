@@ -14,14 +14,17 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
     // MARK: - Outlets
 //    @IBOutlet weak var btAbsence: UIButton!
 //    @IBOutlet weak var btAssignment: UIButton!
-    @IBOutlet weak var lbTimeRemaining: UILabel!
     @IBOutlet weak var btHere: UIButton!
+    @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var lbRoom: UILabel!
+    @IBOutlet weak var btAbsences: UIButton!
     
     // MARK: - Variables
     let realm = try! Realm()
     var classes: Results<Class>!
     let locationManager = CLLocationManager()
     var beaconRegion: CLBeaconRegion!
+    var currentClass: Class?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +34,17 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
         btHere.layer.cornerRadius = 0.5 * btHere.bounds.size.width
         btHere.clipsToBounds = true
         
+        // Remove navbar shadow
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        
+        // Button design
+        btAbsences.layer.cornerRadius = 8.0
+        
         // Get data and filter
         classes = realm.objects(Class.self)
         
-        let start = Calendar.current.startOfDay(for: Date())
-        let end: Date = {
-            let components = DateComponents(day: 1, second: -1)
-            return Calendar.current.date(byAdding: components, to: start)!
-        }()
-        
-        classes = classes.filter("%@ BETWEEN %@", Date(),[start, end])
-        data = data.sorted(byKeyPath: "date", ascending: true)
-        
+        // Filter classes
+        getTodayClasses()
         
         // iBeacons
         locationManager.delegate = self
@@ -65,7 +67,25 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //
+        // Filter classes
+        getTodayClasses()
+        
+        // Get current class
+        getCurrentClass()
+        
+        // Display data
+        if currentClass != nil {
+            self.navigationItem.title = currentClass?.course?.name
+            lbTime.text = (currentClass?.hour)! + ":" + (currentClass?.minute)! + " (" + (currentClass?.duration)! + "hrs)"
+            lbRoom.text = (currentClass?.building)! + "-" + (currentClass?.room)!
+            btAbsences.isEnabled = true
+        }
+        else {
+            self.navigationItem.title = "No more classes!"
+            lbTime.text = ""
+            lbRoom.text = ""
+            btAbsences.isEnabled = false
+        }
     }
     
     @IBAction func here(_ sender: UIButton) {
@@ -77,6 +97,49 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
         let alert = UIAlertController(title: "Success", message: "Assistance has been registered \n\(currentTime)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Functions
+    func getTodayClasses() {
+        let today = Calendar.current.startOfDay(for: Date())
+        let weekday = Calendar.current.component(.weekday, from: today)
+        
+        switch weekday {
+        case 1:
+            classes = classes.filter("sunday = true")
+        case 2:
+            classes = classes.filter("monday = true")
+        case 3:
+            classes = classes.filter("tuesday = true")
+        case 4:
+            classes = classes.filter("wednesday = true")
+        case 5:
+            classes = classes.filter("thursday = true")
+        case 6:
+            classes = classes.filter("friday = true")
+        default:
+            classes = classes.filter("saturday = true")
+        }
+        
+        classes = classes.sorted(byKeyPath: "hour")
+    }
+    
+    func getCurrentClass() {
+        let hour = Calendar.current.component(.hour, from: Date())
+        currentClass = nil
+        
+        for c in classes {
+            if Int(c.hour)! >= hour {
+                currentClass = c
+                break
+            }
+        }
+    }
+    
+    @IBAction func checkAbsences(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Remaining Absences", message: "5", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Location
@@ -100,15 +163,16 @@ class ViewControllerHere: UIViewController, CLLocationManagerDelegate {
                     let calendar = Calendar.current
                     let hour = calendar.component(.hour, from: date)
                     let minute = calendar.component(.minute, from: date)
+
                     
-//                    if hour == Int(c.hour) && minute == Int(c.minute) {
+                    if hour == Int(c.hour)! && (minute >= (Int(c.minute)! - 5) && minute <= (Int(c.minute)! + 20)) {
                         btHere.isEnabled = true
                         btHere.alpha = 1
-//                    }
-//                    else {
-//                        btHere.isEnabled = false
-//                        btHere.alpha = 0.5
-//                    }
+                    }
+                    else {
+                        btHere.isEnabled = false
+                        btHere.alpha = 0.5
+                    }
                 }
             }
         }

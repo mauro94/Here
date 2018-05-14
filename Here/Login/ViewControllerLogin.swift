@@ -42,6 +42,10 @@ class ViewControllerLogin: UIViewController {
             alertOk(title: "Error", message: "Fields cannot be empty", vc: self)
         }
         
+        else if tfUser.text != "A01191903" || tfPassword.text != "123456" {
+            alertOk(title: "Error", message: "Invalid Student ID / Password", vc: self)
+        }
+        
         //print (loginAttempt(user: "A01191903", password: "12344321"))
     }
     

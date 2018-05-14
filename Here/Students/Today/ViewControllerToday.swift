@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewControllerToday: UIViewController, PageViewControllerDelegate {
+class ViewControllerToday: UIViewController, TodayDelegate {
     // MARK: - Outlets
     @IBOutlet weak var vAssignments: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    // MARK: - Variables
     var pageViewController: PageViewControllerAssignments? {
         didSet {
             pageViewController?.todayDelegate = self
@@ -30,19 +31,20 @@ class ViewControllerToday: UIViewController, PageViewControllerDelegate {
         super.didReceiveMemoryWarning()
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "page") {
-            let pageViewController = segue.destination as! PageViewControllerAssignments
+    // MARK: - Navigation    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let pageViewController = segue.destination as? PageViewControllerAssignments {
             pageViewController.todayDelegate = self
         }
     }
 
+    
+    // MARK: - Delegate
     func pageViewControllerAssignments(pageViewController: PageViewControllerAssignments, didUpdatePageCount count: Int) {
         pageControl.numberOfPages = count
     }
     
     func pageViewControllerAssignments(pageViewController: PageViewControllerAssignments, didUpdatePageIndex index: Int) {
-        self.performSegue(withIdentifier: "page", sender: self)
         pageControl.currentPage = index
     }
 }

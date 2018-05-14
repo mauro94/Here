@@ -13,6 +13,9 @@ class ViewControllerHereDevice: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var btDevice: UIButton!
     
+    // MARK: - Variables
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +44,9 @@ class ViewControllerHereDevice: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
         
-        
+        let student = realm.objects(Student.self)[0]
+        try! realm.write {
+            student.device = (identifierForVendor?.uuidString)!
+        }
     }
 }

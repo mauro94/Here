@@ -15,18 +15,20 @@ class AssignmentEnhanced: Object {
     @objc dynamic var priority = ""
     @objc dynamic var date = ""
     @objc dynamic var courseName = ""
+    @objc dynamic var complete = "false"
     @objc dynamic var courseColorRed: Float = 0.0
     @objc dynamic var courseColorGreen: Float = 0.0
     @objc dynamic var courseColorBlue: Float = 0.0
     @objc dynamic var courseColorAlpha: Float = 0.0
     
-    convenience init(title: String, note: String, priority: String, date: String, courseName: String, courseColorRed: Float, courseColorGreen: Float, courseColorBlue: Float, courseColorAlpha: Float) {
+    convenience init(title: String, note: String, priority: String, date: String, courseName: String, complete: String, courseColorRed: Float, courseColorGreen: Float, courseColorBlue: Float, courseColorAlpha: Float) {
         self.init()
         self.title = title
         self.note = note
         self.priority = priority
         self.date = date
         self.courseName = courseName
+        self.complete = complete
         self.courseColorRed = courseColorRed
         self.courseColorGreen = courseColorGreen
         self.courseColorBlue = courseColorBlue

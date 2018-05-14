@@ -69,8 +69,9 @@ func setClassNotification(c: Class, w: Int) {
     content.body = "Remember to register your assitance"
     content.sound = UNNotificationSound.default()
     
-    let components = DateComponents(hour: Int(c.hour), minute: Int(c.minute), weekday: w)
-    let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+    let components = DateComponents(hour: Int(c.hour), minute: Int(c.minute), second: 0, weekday: w)
+    let dateComponents = Calendar.current.dateComponents([.weekday,.hour,.minute,.second,], from: Calendar.current.date(from: components)!)
+    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
     let identifier = c.beaconUUID + "-" + c.beaconMajor + "-" + c.beaconMinor
     let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
     center.add(request, withCompletionHandler: { (error) in
@@ -79,4 +80,3 @@ func setClassNotification(c: Class, w: Int) {
         }
     })
 }
-

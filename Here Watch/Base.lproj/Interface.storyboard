@@ -19,7 +19,7 @@
                         </label>
                         <group width="1" height="0.69999999999999996" alignment="center" verticalAlignment="center" layout="vertical" id="0HF-iL-b1T">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="6" id="cbb-NR-XWv">
+                                <label alignment="center" verticalAlignment="center" text="5" id="cbb-NR-XWv">
                                     <fontDescription key="font" type="system" weight="semibold" pointSize="36"/>
                                 </label>
                             </items>
@@ -48,6 +48,9 @@
                                         </items>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </group>
+                                    <connections>
+                                        <action selector="pressedHere" destination="AgC-eL-Hgc" id="C97-VO-1Pl"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>

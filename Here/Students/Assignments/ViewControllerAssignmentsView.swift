@@ -222,10 +222,6 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let watchConnectionHelper = appDelegate.watchConnectionHelper
             watchConnectionHelper.sendData(message:"delete", assignment: self.assignment)
-
-            try! self.realm.write {
-                self.realm.delete(self.assignment)
-            }
             
             // Notification
             let center = UNUserNotificationCenter.current()
@@ -234,6 +230,10 @@ class ViewControllerAssignmentsView: UIViewController, UITextViewDelegate, UITab
             let id2 = (self.assignment.classCourse?.course?.name)! + "-" + self.assignment.title + "-TwoDays"
             
             center.removePendingNotificationRequests(withIdentifiers: [id1, id2])
+            
+            try! self.realm.write {
+                self.realm.delete(self.assignment)
+            }
             
             self.navigationController?.popViewController(animated: true)
         }

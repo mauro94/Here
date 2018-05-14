@@ -20,15 +20,13 @@ class TableViewControllerTodayAssignments: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         let realm = try! Realm()
         
         if dataType == 1 {
@@ -38,7 +36,7 @@ class TableViewControllerTodayAssignments: UITableViewController {
                 return Calendar.current.date(byAdding: components, to: start)!
             }()
             
-            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end])
+            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end]).filter("complete = false")
             data = data.sorted(byKeyPath: "date", ascending: true)
             tableView.reloadData()
         }
@@ -53,7 +51,7 @@ class TableViewControllerTodayAssignments: UITableViewController {
                 return Calendar.current.date(byAdding: components, to: start)!
             }()
             
-            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end])
+            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end]).filter("complete = false")
             data = data.sorted(byKeyPath: "date", ascending: true)
             tableView.reloadData()
         }
@@ -68,7 +66,7 @@ class TableViewControllerTodayAssignments: UITableViewController {
                 return Calendar.current.date(byAdding: components, to: start)!
             }()
             
-            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end])
+            data = realm.objects(Assignment.self).filter("date BETWEEN %@", [start, end]).filter("complete = false")
             data = data.sorted(byKeyPath: "date", ascending: true)
             tableView.reloadData()
         }

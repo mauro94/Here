@@ -29,4 +29,10 @@ class InterfaceControllerHere: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    
+    @IBAction func pressedHere() {
+        let action = WKAlertAction(title: "Ok", style: .default, handler: {})
+        
+        presentAlert(withTitle: "Registered as attending", message: "", preferredStyle: .actionSheet, actions: [action])
+    }
 }

@@ -40,6 +40,10 @@ class TableViewCellAssignment: UITableViewCell {
             assignment.complete = !assignment.complete
             assignment.completeDate = date
         }
-
+        
+        // Watch
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let watchConnectionHelper = appDelegate.watchConnectionHelper
+        watchConnectionHelper.sendData(message: assignment.title, assignment: assignment)
     }
 }
